@@ -3,3 +3,6 @@ node_modules
 
 # Source maps
 *.js.map
+
+# Mac DS_Store
+.DS_Store
