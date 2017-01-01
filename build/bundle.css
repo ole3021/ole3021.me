@@ -3888,3 +3888,7 @@ a.panel-block:hover {
       border-bottom: 1px solid #dbdbdb; }
       .footer a:not(.icon):hover, .footer a:visited:not(.icon):hover {
         border-bottom-color: #00d1b2; }
+
+.hero.is-info {
+  background-color: #ffb3b3;
+  color: #72d0eb; }

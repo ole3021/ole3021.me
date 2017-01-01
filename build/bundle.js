@@ -26300,20 +26300,274 @@
 
 	var _reactRouter = __webpack_require__(181);
 
-	var _Index = __webpack_require__(237);
+	var _App = __webpack_require__(237);
 
-	var _Index2 = _interopRequireDefault(_Index);
+	var _App2 = _interopRequireDefault(_App);
+
+	var _Home = __webpack_require__(240);
+
+	var _Home2 = _interopRequireDefault(_Home);
+
+	var _Blogs = __webpack_require__(241);
+
+	var _Blogs2 = _interopRequireDefault(_Blogs);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createElement(
 	  _reactRouter.Route,
-	  { path: '/', component: _Index2.default },
-	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _Index2.default })
+	  { path: '/', mapMenuTitle: 'Home', component: _App2.default },
+	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: 'blogs', component: _Blogs2.default })
 	);
 
 /***/ },
 /* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(4);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(238);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _Header = __webpack_require__(239);
+
+	var _Header2 = _interopRequireDefault(_Header);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var App = function (_React$Component) {
+	  _inherits(App, _React$Component);
+
+	  function App() {
+	    _classCallCheck(this, App);
+
+	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	  }
+
+	  _createClass(App, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props,
+	          pathname = _props.location.pathname,
+	          children = _props.children;
+
+
+	      return _react2.default.createElement(
+	        'section',
+	        { className: (0, _classnames2.default)('hero', { 'is-info is-large': pathname === '/' }, { 'is-info': pathname !== '/' }) },
+	        _react2.default.createElement(_Header2.default, { pathname: pathname }),
+	        children
+	      );
+	    }
+	  }]);
+
+	  return App;
+	}(_react2.default.Component);
+
+	exports.default = App;
+
+/***/ },
+/* 238 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  Copyright (c) 2016 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+	/* global define */
+
+	(function () {
+		'use strict';
+
+		var hasOwn = {}.hasOwnProperty;
+
+		function classNames () {
+			var classes = [];
+
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+
+				var argType = typeof arg;
+
+				if (argType === 'string' || argType === 'number') {
+					classes.push(arg);
+				} else if (Array.isArray(arg)) {
+					classes.push(classNames.apply(null, arg));
+				} else if (argType === 'object') {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				}
+			}
+
+			return classes.join(' ');
+		}
+
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if (true) {
+			// register as 'classnames', consistent with npm package name
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return classNames;
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+			window.classNames = classNames;
+		}
+	}());
+
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(4);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(238);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _reactRouter = __webpack_require__(181);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Header = function (_React$Component) {
+	  _inherits(Header, _React$Component);
+
+	  function Header() {
+	    _classCallCheck(this, Header);
+
+	    return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+	  }
+
+	  _createClass(Header, [{
+	    key: 'render',
+	    value: function render() {
+	      var homeLInk = '/';
+	      var blogsLink = '/blogs';
+	      var worksLink = '/works';
+	      var aboutLink = '/about';
+	      var repoLink = 'https://github.com/ole3021';
+
+	      var pathname = this.props.pathname;
+
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'hero-head' },
+	        _react2.default.createElement(
+	          'header',
+	          { className: 'nav' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'container' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'nav-left' },
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: homeLInk, className: 'nav-item is-brand' },
+	                _react2.default.createElement(
+	                  'b',
+	                  null,
+	                  'OLE3021'
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'nav-toggle' },
+	              _react2.default.createElement('span', null),
+	              _react2.default.createElement('span', null),
+	              _react2.default.createElement('span', null)
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'nav-right nav-menu' },
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: homeLInk, className: (0, _classnames2.default)('nav-item', { 'is-active': pathname === homeLInk }) },
+	                'Home'
+	              ),
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: blogsLink, className: (0, _classnames2.default)('nav-item', { 'is-active': pathname === blogsLink }) },
+	                'Blogs'
+	              ),
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: worksLink, className: (0, _classnames2.default)('nav-item', { 'is-active': pathname === worksLink }) },
+	                'Works'
+	              ),
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: aboutLink, className: (0, _classnames2.default)('nav-item', { 'is-active': pathname === aboutLink }) },
+	                'About'
+	              ),
+	              _react2.default.createElement(
+	                'span',
+	                { className: 'nav-item' },
+	                _react2.default.createElement(
+	                  'span',
+	                  { className: 'icon' },
+	                  _react2.default.createElement(
+	                    'a',
+	                    { target: '_blank', href: repoLink },
+	                    _react2.default.createElement('i', { className: 'fa fa-github' })
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Header;
+	}(_react2.default.Component);
+
+	exports.default = Header;
+
+/***/ },
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26328,93 +26582,54 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function Index() {
+	function Home() {
 	  return _react2.default.createElement(
-	    'section',
-	    { className: 'hero is-info is-large' },
+	    'div',
+	    { className: 'hero-body' },
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'hero-head' },
+	      { className: 'container has-text-centered' },
 	      _react2.default.createElement(
-	        'header',
-	        { className: 'nav' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'container' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'nav-left' },
-	            _react2.default.createElement(
-	              'a',
-	              { className: 'nav-item' },
-	              _react2.default.createElement('img', { src: '/assets/images/ole3021_logo.png', alt: 'Logo' })
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'span',
-	            { className: 'nav-toggle' },
-	            _react2.default.createElement('span', null),
-	            _react2.default.createElement('span', null),
-	            _react2.default.createElement('span', null)
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'nav-right nav-menu' },
-	            _react2.default.createElement(
-	              'a',
-	              { className: 'nav-item is-active' },
-	              'Home'
-	            ),
-	            _react2.default.createElement(
-	              'a',
-	              { className: 'nav-item' },
-	              'Blogs'
-	            ),
-	            _react2.default.createElement(
-	              'a',
-	              { className: 'nav-item' },
-	              'Works'
-	            ),
-	            _react2.default.createElement(
-	              'a',
-	              { className: 'nav-item' },
-	              'About'
-	            ),
-	            _react2.default.createElement(
-	              'span',
-	              { className: 'nav-item' },
-	              _react2.default.createElement(
-	                'span',
-	                { className: 'icon' },
-	                _react2.default.createElement('i', { className: 'fa fa-github' })
-	              )
-	            )
-	          )
-	        )
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'hero-body' },
+	        'h1',
+	        { className: 'title' },
+	        'Under Development'
+	      ),
 	      _react2.default.createElement(
-	        'div',
-	        { className: 'container has-text-centered' },
-	        _react2.default.createElement(
-	          'h1',
-	          { className: 'title' },
-	          'Oliver'
-	        ),
-	        _react2.default.createElement(
-	          'h2',
-	          { className: 'subtitle' },
-	          'SSSSS222'
-	        )
+	        'h2',
+	        { className: 'subtitle' },
+	        'Coming Soon....'
 	      )
 	    )
 	  );
 	}
 
-	exports.default = Index;
+	exports.default = Home;
+
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(4);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function Blogs() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'hero-body' },
+	    'bodad'
+	  );
+	}
+
+	exports.default = Blogs;
 
 /***/ }
 /******/ ]);
