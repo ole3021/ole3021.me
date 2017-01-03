@@ -7,7 +7,14 @@ class HeroBody extends React.Component {
   render () {
     return (
       <div className='hero-body'>
-        bodad
+        <div className='column'>
+          <p className='title'>
+            Blogs
+          </p>
+          <p className='subtitle'>
+            Personal blogs.
+          </p>
+        </div>
       </div>
     )
   }

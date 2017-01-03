@@ -25,7 +25,7 @@ class NotFound extends React.Component {
     const { props: { location: { pathname } } } = this
 
     return (
-      <section className={classNames('hero', 'is-warning', 'is-large')}>
+      <section className={classNames('hero', 'is-warning', 'is-fullheight')}>
         <Navigation pathname={pathname} />
         <HeroBody />
       </section>
