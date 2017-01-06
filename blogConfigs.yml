@@ -5,15 +5,21 @@
 # cover: Cover Image
 # color: Main Color
 
-- title: sfsdf
-  meta: 《敏开武士》阅读总结，包含敏捷开发的团队建设，项目开发，项目管理，以及如何交付敏捷项目的开发结果。
+- title: test1
+  meta: test-meta1
   category: swe
   tags: [code, agile]
   cover: /img/fdsf
   color: '#606060'
-- title: sssfd13212
-  meta: fdsfsfsfjslfjdslkfjslkdfj
+- title: test2
+  meta: test-meta2
   category: swe
+  tags: [code, agile]
+  cover: /img/fdsf
+  color: '#606060'
+- title: test3
+  meta: test-meta3
+  category: 软件工程
   tags: [code, agile]
   cover: /img/fdsf
   color: '#606060'
