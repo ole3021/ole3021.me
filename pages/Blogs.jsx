@@ -1,9 +1,14 @@
 import React from 'react'
 import classNames from 'classnames'
+import blogConfigs from 'json!yaml!../blogConfigs.yml'
 
 import Navigation from '../components/Navigation'
 
 class HeroBody extends React.Component {
+  componentDidMount () {
+    console.log('>>>> blogconfigs', blogConfigs)
+  }
+
   render () {
     return (
       <div className='hero-body'>
