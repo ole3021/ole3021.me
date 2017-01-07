@@ -31,13 +31,17 @@ class HeroBody extends React.Component {
 
 class HeroFoot extends React.Component {
   render () {
+    const { props: { currentCategory, changeCategory } } = this
     const categoryNavs = Object.keys(allCategories).map((name, index) => {
-      return <li key={index}><a>{name}</a></li>
+      const activeCategory = currentCategory || Object.keys(allCategories)[0]
+      return <li key={index}
+        className={classNames({'is-active': activeCategory === name})}
+        onClick={() => { changeCategory(name) }}><a>{name}</a></li>
     })
     return (
       <div className='hero-foot'>
         <div className='container'>
-          <div className='tabs is-centered'>
+          <div className='tabs is-centered is-boxed'>
             <ul>
               {categoryNavs}
             </ul>
@@ -50,7 +54,9 @@ class HeroFoot extends React.Component {
 
 class BodySection extends React.Component {
   render () {
+    const { props: { currentCategory } } = this
     const blogList = (blogs) => {
+      // Create eacth blog react component
       const blogItems = blogs.map((blog, index) => {
         return (
           <div key={index} className='column is-one-quarter'>
@@ -80,6 +86,7 @@ class BodySection extends React.Component {
           </div>
         )
       }).reduce((pre, blogItem) => {
+        // Group blog components for each column
         pre.length === 0
           ? pre.push([blogItem])
           : pre[pre.length - 1].length < 4
@@ -101,8 +108,9 @@ class BodySection extends React.Component {
       )
     }
     const categorySessions = Object.keys(allCategories).map((name, index) => {
+      const activeCategory = currentCategory || Object.keys(allCategories)[0]
       return (
-        <section id={name} className='section'>
+        <section key={index} className={classNames('section', {'hidden': activeCategory === name})}>
           {blogList(allCategories[name])}
         </section>
       )
@@ -116,6 +124,17 @@ class BodySection extends React.Component {
 }
 
 class Blogs extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      currentCategory: null
+    }
+  }
+
+  changeCategory (category) {
+    this.setState({currentCategory: category})
+  }
   render () {
     const { props: { location: { pathname } } } = this
 
@@ -124,9 +143,9 @@ class Blogs extends React.Component {
         <section className={classNames('hero', 'is-info')}>
           <Navigation pathname={pathname} />
           <HeroBody />
-          <HeroFoot />
+          <HeroFoot currentCategory={this.state.currentCategory} changeCategory={this.changeCategory.bind(this)} />
         </section>
-        <BodySection />
+        <BodySection currentCategory={this.state.currentCategory} />
       </div>
     )
   }

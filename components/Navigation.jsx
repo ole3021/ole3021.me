@@ -31,7 +31,7 @@ class Navigation extends React.Component {
               </Link>
             </div>
             <span className={classNames('nav-toggle', {'is-active': isActive})}
-              onClick={() => { this.setState({'isActive': !isActive}) }}>
+              onClick={() => { this.setState({isActive: !isActive}) }}>
               <span />
               <span />
               <span />
