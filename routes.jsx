@@ -9,7 +9,10 @@ import NotFound from './pages/NotFound'
 export default (
   <Route path='/' mapMenuTitle='Home' component={App}>
     <IndexRoute component={Home} />
-    <Route path='blogs' component={Blogs} />
+
+    <Route path='blogs'>
+      <IndexRoute component={Blogs} />
+    </Route>
 
     <Route path='*' component={NotFound} />
   </Route>

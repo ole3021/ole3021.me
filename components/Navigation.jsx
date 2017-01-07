@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 
 import { Link } from 'react-router'
+import { toggleElement } from '../utils'
 
 class Navigation extends React.Component {
   render () {
@@ -22,12 +23,16 @@ class Navigation extends React.Component {
                 <b>OLE3021</b>
               </Link>
             </div>
-            <span className='nav-toggle'>
+            <span id='menu-icon' className='nav-toggle'
+              onClick={() => {
+                toggleElement('menu', 'is-active')
+                toggleElement('menu-icon', 'is-active')
+              }}>
               <span />
               <span />
               <span />
             </span>
-            <div className='nav-right nav-menu'>
+            <div id='menu' className='nav-right nav-menu'>
               <Link to={homeLInk} className={classNames('nav-item',
                 {'is-active': pathname === homeLInk})}>
                 Home
