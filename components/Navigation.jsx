@@ -2,9 +2,16 @@ import React from 'react'
 import classNames from 'classnames'
 
 import { Link } from 'react-router'
-import { toggleElement } from '../utils'
 
 class Navigation extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      isActive: false
+    }
+  }
+
   render () {
     const homeLInk = '/'
     const blogsLink = '/blogs'
@@ -12,7 +19,7 @@ class Navigation extends React.Component {
     const aboutLink = '/about'
     const repoLink = 'https://github.com/ole3021'
 
-    const { props: { pathname } } = this
+    const { props: { pathname }, state: { isActive } } = this
 
     return (
       <div className='hero-head'>
@@ -23,16 +30,14 @@ class Navigation extends React.Component {
                 <b>OLE3021</b>
               </Link>
             </div>
-            <span id='menu-icon' className='nav-toggle'
-              onClick={() => {
-                toggleElement('menu', 'is-active')
-                toggleElement('menu-icon', 'is-active')
-              }}>
+            <span className={classNames('nav-toggle', {'is-active': isActive})}
+              onClick={() => { this.setState({'isActive': !isActive}) }}>
               <span />
               <span />
               <span />
             </span>
-            <div id='menu' className='nav-right nav-menu'>
+            <div className={classNames('nav-right', 'nav-menu',
+              {'is-active': isActive})}>
               <Link to={homeLInk} className={classNames('nav-item',
                 {'is-active': pathname === homeLInk})}>
                 Home
