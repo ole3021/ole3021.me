@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 
 import { Link } from 'react-router'
+import { navFromPath } from '../utils'
 
 class Navigation extends React.Component {
   constructor (props) {
@@ -13,13 +14,14 @@ class Navigation extends React.Component {
   }
 
   render () {
-    const homeLInk = '/'
-    const blogsLink = '/blogs'
-    const worksLink = '/works'
-    const aboutLink = '/about'
+    const homeLInk = ''
+    const blogsLink = 'blogs'
+    const worksLink = 'works'
+    const aboutLink = 'about'
     const repoLink = 'https://github.com/ole3021'
 
     const { props: { pathname }, state: { isActive } } = this
+    const currentNav = navFromPath(pathname)
 
     return (
       <div className='hero-head'>
@@ -39,19 +41,19 @@ class Navigation extends React.Component {
             <div className={classNames('nav-right', 'nav-menu',
               {'is-active': isActive})}>
               <Link to={homeLInk} className={classNames('nav-item',
-                {'is-active': pathname === homeLInk})}>
+                {'is-active': currentNav === homeLInk})}>
                 Home
               </Link>
               <Link to={blogsLink} className={classNames('nav-item',
-                {'is-active': pathname === blogsLink})}>
+                {'is-active': currentNav === blogsLink || currentNav === 'post'})}>
                 Blogs
               </Link>
               <Link to={worksLink} className={classNames('nav-item',
-                {'is-active': pathname === worksLink})}>
+                {'is-active': currentNav === worksLink})}>
                 Works
               </Link>
               <Link to={aboutLink} className={classNames('nav-item',
-                {'is-active': pathname === aboutLink})}>
+                {'is-active': currentNav === aboutLink})}>
                 About
               </Link>
               <span className='nav-item'>
