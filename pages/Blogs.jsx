@@ -53,7 +53,7 @@ class BodySection extends React.Component {
       // Create eacth blog react component
       const blogItems = blogs.map((blog, index) => {
         return (
-          <Link key={index} to={`/article/${blog.title}`} className='column is-one-quarter'>
+          <Link key={index} to={`/post/${blog.title}`} className='column is-one-quarter'>
             <section>
               <div className='card is-fullwidth'>
                 <div className='card-image'>

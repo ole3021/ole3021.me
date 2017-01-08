@@ -5,7 +5,7 @@
 # cover: Cover Image
 # color: Main Color
 
-- path: /blogs/20170106test.md
+- path: /_posts/20170106test.md
   title: test1
   meta: test-meta1
   category: swe
@@ -13,7 +13,7 @@
   cover: http://bulma.io/images/placeholders/1280x960.png
   color: '#606060'
   created: 2017-01-02
-- path: /blogs/20170106test.md
+- path: /_posts/20170106test.md
   title: test2
   meta: test-meta2
   category: swe
@@ -21,7 +21,7 @@
   cover: /img/fdsf
   color: '#606060'
   created: 2017-01-02
-- path: /blogs/20170106test.md
+- path: /_posts/20170106test.md
   title: test4
   meta: test-meta1
   category: swe
@@ -29,7 +29,7 @@
   cover: http://bulma.io/images/placeholders/1280x960.png
   color: '#606060'
   created: 2017-01-02
-- path: /blogs/20170106test.md
+- path: /_posts/20170106test.md
   title: test3
   meta: test-meta3
   category: 软件工程

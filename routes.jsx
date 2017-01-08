@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, IndexRoute, IndexRedirect } from 'react-router'
 
 import App from './components/App'
-import Article from './pages/Article'
+import Post from './pages/Post'
 import Blogs from './pages/Blogs'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
@@ -19,9 +19,9 @@ export default (
       <Route path=':category' component={Blogs} />
     </Route>
 
-    <Route path='article'>
+    <Route path='post'>
       <IndexRedirect to='/blogs' />
-      <Route path=':title' component={Article} />
+      <Route path=':title' component={Post} />
     </Route>
 
     <Route path='*' component={NotFound} />
