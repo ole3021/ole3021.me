@@ -47,6 +47,12 @@ class Post extends React.Component {
   render () {
     const { props: { location: { pathname }, params: { title } }, state: { isLoading } } = this
     const loadingScreen = <div>Loading</div>
+    const post = <section className='section'>
+      <div className='content'>
+        <article className='article' dangerouslySetInnerHTML={{__html: article}} />
+      </div>
+    </section>
+
     return (
       <div>
         <section className={classNames('hero', 'is-info')}>
@@ -55,7 +61,7 @@ class Post extends React.Component {
         </section>
         {isLoading
           ? loadingScreen
-          : <div className='content' dangerouslySetInnerHTML={{__html: article}} />
+          : post
         }
       </div>
     )
