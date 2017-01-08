@@ -1,16 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router'
 import classNames from 'classnames'
-import blogConfigs from 'json!yaml!../blogConfigs.yml'
 
 import Navigation from '../components/Navigation'
-
-const allCategories = blogConfigs.reduce((pre, cur) => {
-  const category = cur.category ? cur.category : '未分类'
-  pre[category] = pre[category]
-    ? pre[category].concat([cur])
-    : [cur]
-  return pre
-}, {})
+import { blogCategories } from '../utils'
 
 class HeroBody extends React.Component {
   render () {
@@ -31,13 +24,14 @@ class HeroBody extends React.Component {
 
 class HeroFoot extends React.Component {
   render () {
-    const { props: { currentCategory, changeCategory } } = this
-    const categoryNavs = Object.keys(allCategories).map((name, index) => {
-      const activeCategory = currentCategory || Object.keys(allCategories)[0]
+    const { props: { currentCategory } } = this
+    const categoryNavs = Object.keys(blogCategories).map((name, index) => {
       return <li key={index}
-        className={classNames({'is-active': activeCategory === name})}
-        onClick={() => { changeCategory(name) }}><a>{name}</a></li>
+        className={classNames({'is-active': currentCategory === name})}>
+        <Link to={`/blogs/${name}`}>{name}</Link>
+      </li>
     })
+
     return (
       <div className='hero-foot'>
         <div className='container'>
@@ -59,7 +53,7 @@ class BodySection extends React.Component {
       // Create eacth blog react component
       const blogItems = blogs.map((blog, index) => {
         return (
-          <div key={index} className='column is-one-quarter'>
+          <Link key={index} to={`/article/${blog.title}`} className='column is-one-quarter'>
             <section>
               <div className='card is-fullwidth'>
                 <div className='card-image'>
@@ -83,7 +77,7 @@ class BodySection extends React.Component {
                 </div>
               </div>
             </section>
-          </div>
+          </Link>
         )
       }).reduce((pre, blogItem) => {
         // Group blog components for each column
@@ -107,11 +101,10 @@ class BodySection extends React.Component {
         </div>
       )
     }
-    const categorySessions = Object.keys(allCategories).map((name, index) => {
-      const activeCategory = currentCategory || Object.keys(allCategories)[0]
+    const categorySessions = Object.keys(blogCategories).map((name, index) => {
       return (
-        <section key={index} className={classNames('section', {'hidden': activeCategory === name})}>
-          {blogList(allCategories[name])}
+        <section key={index} className={classNames('section', {'hidden': currentCategory === name})}>
+          {blogList(blogCategories[name])}
         </section>
       )
     })
@@ -124,28 +117,17 @@ class BodySection extends React.Component {
 }
 
 class Blogs extends React.Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      currentCategory: null
-    }
-  }
-
-  changeCategory (category) {
-    this.setState({currentCategory: category})
-  }
   render () {
-    const { props: { location: { pathname } } } = this
+    const { props: { location: { pathname }, params: { category } } } = this
 
     return (
       <div>
         <section className={classNames('hero', 'is-info')}>
           <Navigation pathname={pathname} />
           <HeroBody />
-          <HeroFoot currentCategory={this.state.currentCategory} changeCategory={this.changeCategory.bind(this)} />
+          <HeroFoot currentCategory={category} />
         </section>
-        <BodySection currentCategory={this.state.currentCategory} />
+        <BodySection currentCategory={category} />
       </div>
     )
   }
