@@ -7,3 +7,8 @@ export const blogCategories = blogConfigs.reduce((pre, cur) => {
     : [cur]
   return pre
 }, {})
+
+export const blogTitles = blogConfigs.reduce((pre, cur) => {
+  pre[cur.title] = cur
+  return pre
+}, {})

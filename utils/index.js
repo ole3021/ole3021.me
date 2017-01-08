@@ -1,1 +1,1 @@
-export {blogCategories} from './blogs'
+export { blogCategories, blogTitles } from './blogs'
