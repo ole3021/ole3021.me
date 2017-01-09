@@ -5,6 +5,7 @@ import App from './components/App'
 import Post from './pages/Post'
 import Blogs from './pages/Blogs'
 import Home from './pages/Home'
+import Test from './pages/Test'
 import NotFound from './pages/NotFound'
 
 import { blogCategories } from './utils'
@@ -23,6 +24,8 @@ export default (
       <IndexRedirect to='/blogs' />
       <Route path=':title' component={Post} />
     </Route>
+
+    <Route path='test' component={Test} />
 
     <Route path='*' component={NotFound} />
   </Route>
