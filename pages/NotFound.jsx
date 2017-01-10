@@ -7,13 +7,15 @@ class HeroBody extends React.Component {
   render () {
     return (
       <div className='hero-body'>
-        <div className='column'>
-          <p className='title'>
-            404 - Page Not Fount
-          </p>
-          <p className='subtitle'>
-            Sorry, the page you are looking for is not found.
-          </p>
+        <div className='container has-text-centered'>
+          <div className='column'>
+            <p className='title'>
+              404 - Page Not Fount
+            </p>
+            <p className='subtitle'>
+              Sorry, the page you are looking for is not found.
+            </p>
+          </div>
         </div>
       </div>
     )

@@ -8,13 +8,15 @@ class HeroBody extends React.Component {
   render () {
     return (
       <div className='hero-body'>
-        <div className='column'>
-          <p className='title'>
-            Test
-          </p>
-          <p className='subtitle'>
-            Test Page
-          </p>
+        <div className='container'>
+          <div className='column'>
+            <p className='title'>
+              Test
+            </p>
+            <p className='subtitle'>
+              Test Page
+            </p>
+          </div>
         </div>
       </div>
     )

@@ -13,13 +13,15 @@ class HeroBody extends React.Component {
     const { props: { post } } = this
     return (
       <div className='hero-body'>
-        <div className='column'>
-          <p className='title'>
-            {post.title}
-          </p>
-          <p className='subtitle'>
-            {post.meta}
-          </p>
+        <div className='container'>
+          <div className='column'>
+            <p className='title'>
+              {post.title}
+            </p>
+            <p className='subtitle'>
+              {post.meta}
+            </p>
+          </div>
         </div>
       </div>
     )
@@ -48,8 +50,10 @@ class Post extends React.Component {
     const { props: { location: { pathname }, params: { title } }, state: { isLoading } } = this
     const loadingScreen = <div>Loading</div>
     const post = <section className='section'>
-      <div className='content'>
-        <article className='article' dangerouslySetInnerHTML={{__html: article}} />
+      <div className='container'>
+        <div className='content'>
+          <article className='article' dangerouslySetInnerHTML={{__html: article}} />
+        </div>
       </div>
     </section>
 

@@ -9,13 +9,15 @@ class HeroBody extends React.Component {
   render () {
     return (
       <div className='hero-body'>
-        <div className='column'>
-          <p className='title'>
-            Blogs
-          </p>
-          <p className='subtitle'>
-            Personal blogs.
-          </p>
+        <div className='container'>
+          <div className='column'>
+            <p className='title'>
+              Blogs
+            </p>
+            <p className='subtitle'>
+              Personal blogs.
+            </p>
+          </div>
         </div>
       </div>
     )
@@ -104,7 +106,9 @@ class BodySection extends React.Component {
     const categorySessions = Object.keys(blogCategories).map((name, index) => {
       return (
         <section key={index} className={classNames('section', {'hidden': currentCategory === name})}>
-          {blogList(blogCategories[name])}
+          <div className='container'>
+            {blogList(blogCategories[name])}
+          </div>
         </section>
       )
     })
