@@ -6,10 +6,20 @@
   color: #fd685c;
 }
 
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading {
+  width: 24rem;
+}
+
 .block {
-  width: 2rem;
+  width: 4rem;
   height: 2rem;
-  margin: .5rem;
+  margin: 10px;
 }
 
 .green {

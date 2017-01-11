@@ -4,6 +4,7 @@ import axios from 'axios'
 import marked from 'marked'
 
 import Navigation from '../components/Navigation'
+import Loading from '../components/Loading'
 
 import { blogTitles } from '../utils'
 let article = null
@@ -48,7 +49,6 @@ class Post extends React.Component {
 
   render () {
     const { props: { location: { pathname }, params: { title } }, state: { isLoading } } = this
-    const loadingScreen = <div>Loading</div>
     const post = <section className='section'>
       <div className='container'>
         <div className='content'>
@@ -64,7 +64,7 @@ class Post extends React.Component {
           <HeroBody post={blogTitles[title]} />
         </section>
         {isLoading
-          ? loadingScreen
+          ? <Loading />
           : post
         }
       </div>

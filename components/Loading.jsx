@@ -4,22 +4,32 @@ import anime from 'animejs'
 class Loading extends React.Component {
   componentDidMount () {
     anime({
-      targets: ['.blue', '.green'],
-      translateX: '13rem',
-      rotate: 180,
-      borderRadius: '8px',
-      duration: 2000,
+      targets: '.block',
+      translateX: '18rem',
+      scale: [0.75, 0.9],
+      delay: (el, index) => {
+        return index * 80
+      },
+      direction: 'alternate',
       loop: true
     })
   }
 
   render () {
     return (
-      <div>
-        loading...
-        <div className='block green' />
-        <div className='block green' />
-      </div>
+      <section className='hero'>
+        <div className='hero-body'>
+          <div className='loading-container'>
+            <div className='loading'>
+              <div className='block notification is-success' />
+              <div className='block notification is-warning' />
+              <div className='block notification is-danger' />
+            </div>
+
+          </div>
+        </div>
+      </section>
+
     )
   }
 }
