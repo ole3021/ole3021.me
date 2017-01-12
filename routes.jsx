@@ -23,7 +23,10 @@ export default (
     </Route>
 
     <Route path='test' component={Test} />
+    <Route path='404' component={NotFound} />
 
-    <Route path='*' component={NotFound} />
+    <Route path='*'>
+      <IndexRedirect to='/404' />
+    </Route>
   </Route>
 )

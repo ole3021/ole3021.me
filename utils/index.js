@@ -6,7 +6,7 @@ export const buildCategories = posts => posts.reduce((pre, cur) => {
   return pre
 }, {})
 
-export const blogTitles = posts => posts.reduce((pre, cur) => {
+export const buildTitles = posts => posts.reduce((pre, cur) => {
   pre[cur.title] = cur
   return pre
 }, {})

@@ -137,8 +137,8 @@ class Blogs extends React.Component {
   }
 
   componentDidMount () {
-    const uri = '/postInfos.yml'
-    axios.get(uri).then(({data}) => {
+    const postInfoPath = '/postInfos.yml'
+    axios.get(postInfoPath).then(({data}) => {
       const posts = yaml.load(data)
       const categories = buildCategories(posts)
       // article = marked(data)
