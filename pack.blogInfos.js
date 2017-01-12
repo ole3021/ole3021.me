@@ -1,7 +1,7 @@
 import * as fs from 'fs'
 import { sync as globSync } from 'glob'
 
-const POST_PATTERN = './markdown/**/*.md'
+const POST_PATTERN = './_posts/**/*.md'
 const POST_INFO_FILE = './postInfos.yml'
 
 const parseInfo = post => {

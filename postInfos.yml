@@ -5,7 +5,7 @@
   cover: /assets/images/post/scope_closure.png
   color: '#606060'
   created: 2016-03-13
-  path: /markdown/Javascript/Scope_Closure.md
+  path: /_posts/Javascript/Scope_Closure.md
 - title: "Git管理最佳实践"
   meta: "Git分支管理来解决多功能多版并行开发中合并和管理代码的问题。"
   category: Knowledge
@@ -13,7 +13,7 @@
   cover: /assets/images/post/git.jpg
   color: '#FFFFFF'
   created: 2016-08-03
-  path: /markdown/Knowledge/Git_Best_Prictical.md
+  path: /_posts/Knowledge/Git_Best_Prictical.md
 - title: "番茄工作法"
   meta: "根据大脑的工作规律总结的单项行动的计划方法，通过使用固定的工作方法来提高工作效率、减少干扰、减少压力和不必要的担忧并在过程中自我改进从容的达成预期目标。"
   category: Knowledge
@@ -21,7 +21,7 @@
   cover: /assets/images/post/pomodoro.jpg
   color: '#606060'
   created: 2016-03-08
-  path: /markdown/Knowledge/Pomodoro.md
+  path: /_posts/Knowledge/Pomodoro.md
 - title: "敏捷开发知识总结"
   meta: 《敏开武士》阅读总结，包含敏捷开发的团队建设，项目开发，项目管理，以及如何交付敏捷项目的开发结果。
   category: Software Enginerring
@@ -29,4 +29,4 @@
   cover: /assets/images/post/agile-samurai.jpg
   color: '#606060'
   created: 2016-02-22
-  path: /markdown/Software_Engineering/Agile_Development.md
+  path: /_posts/Software_Engineering/Agile_Development.md
