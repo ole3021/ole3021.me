@@ -1,8 +1,32 @@
-- title: test1
-  meta: test-meta1
-  category: swe
-  tags: [code, agile]
-  cover: http://bulma.io/images/placeholders/1280x960.png
+- title: Scope & Closure
+  meta: "Summary of JavaScript Scope and Closure knowledge based on \"You Don't Know JS\" series books."
+  category: JavaScript
+  tags: [Don't Know JS]
+  cover: /assets/images/post/scope_closure.png
   color: '#606060'
-  created: 2017-01-02
-  path: /_posts/20170106test.md
+  created: 2016-03-13
+  path: /_posts/Javascript/Scope_Closure.md
+- title: "Git管理最佳实践"
+  meta: "Git分支管理来解决多功能多版并行开发中合并和管理代码的问题。"
+  category: Knowledge
+  tags: [git]
+  cover: /assets/images/post/git.jpg
+  color: '#FFFFFF'
+  created: 2016-08-03
+  path: /_posts/Knowledge/Git_Best_Prictical.md
+- title: "番茄工作法"
+  meta: "根据大脑的工作规律总结的单项行动的计划方法，通过使用固定的工作方法来提高工作效率、减少干扰、减少压力和不必要的担忧并在过程中自我改进从容的达成预期目标。"
+  category: Knowledge
+  tags: [agile]
+  cover: /assets/images/post/pomodoro.jpg
+  color: '#606060'
+  created: 2016-03-08
+  path: /_posts/Knowledge/Pomodoro.md
+- title: "敏捷开发知识总结"
+  meta: 《敏开武士》阅读总结，包含敏捷开发的团队建设，项目开发，项目管理，以及如何交付敏捷项目的开发结果。
+  category: Software Enginerring
+  tags: [code, agile]
+  cover: /assets/images/post/agile-samurai.jpg
+  color: '#606060'
+  created: 2016-02-22
+  path: /_posts/Software_Engineering/Agile_Development.md

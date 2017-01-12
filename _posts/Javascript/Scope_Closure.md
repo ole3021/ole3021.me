@@ -1,11 +1,11 @@
 ---
-title: test1
-meta: test-meta1
-category: swe
-tags: [code, agile]
-cover: http://bulma.io/images/placeholders/1280x960.png
+title: Scope & Closure
+meta: "Summary of JavaScript Scope and Closure knowledge based on \"You Don't Know JS\" series books."
+category: JavaScript
+tags: [Don't Know JS]
+cover: /assets/images/post/scope_closure.png
 color: '#606060'
-created: 2017-01-02
+created: 2016-03-13
 ---
 
 # Scope
@@ -71,7 +71,7 @@ Lexical Scoper is defined at `lexing`[^compile] time based on where variables an
 
 ### Scope Bubbles
 Scope bubbles are defined by where the blocks of scopes are written.
-![Scope](http://ole3021.me/img/post/20160312scope.png)
+![Scope](/assets/images/post/scope.png)
 There are three scopes inherent in the code above. It is helf to think about these scopes as bubbles inside each other.
 
 Bubble1: Encompasses the global scope, and has just one identifier `foo`.
