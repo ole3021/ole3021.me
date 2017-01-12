@@ -14,7 +14,7 @@ class Navigation extends React.Component {
   }
 
   render () {
-    const homeLInk = ''
+    const homeLInk = '/'
     const blogsLink = 'blogs'
     const worksLink = 'works'
     const aboutLink = 'about'
