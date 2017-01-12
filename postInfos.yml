@@ -1,0 +1,8 @@
+- path: /_posts/20170106test.md
+  title: test1
+  meta: test-meta1
+  category: swe
+  tags: [code, agile]
+  cover: http://bulma.io/images/placeholders/1280x960.png
+  color: '#606060'
+  created: 2017-01-02

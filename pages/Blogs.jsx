@@ -1,9 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 import classNames from 'classnames'
+import axios from 'axios'
+import yaml from 'js-yaml'
 
 import Navigation from '../components/Navigation'
-import { blogCategories } from '../utils'
+import Loading from '../components/Loading'
+import { buildCategories } from '../utils'
 
 class HeroBody extends React.Component {
   render () {
@@ -26,14 +29,15 @@ class HeroBody extends React.Component {
 
 class HeroFoot extends React.Component {
   render () {
-    const { props: { currentCategory } } = this
-    const categoryNavs = Object.keys(blogCategories).map((name, index) => {
-      return <li key={index}
-        className={classNames({'is-active': currentCategory === name})}>
-        <Link to={`/blogs/${name}`}>{name}</Link>
-      </li>
-    })
-
+    const { props: { blogCategories, currentCategory } } = this
+    const categoryNavs = blogCategories
+      ? Object.keys(blogCategories).map((name, index) => {
+        return <li key={index}
+          className={classNames({'is-active': currentCategory === name})}>
+          <Link to={`/blogs/${name}`}>{name}</Link>
+        </li>
+      })
+      : null
     return (
       <div className='hero-foot'>
         <div className='container'>
@@ -50,7 +54,7 @@ class HeroFoot extends React.Component {
 
 class BodySection extends React.Component {
   render () {
-    const { props: { currentCategory } } = this
+    const { props: { blogCategories, currentCategory } } = this
     const blogList = (blogs) => {
       // Create eacth blog react component
       const blogItems = blogs.map((blog, index) => {
@@ -74,7 +78,7 @@ class BodySection extends React.Component {
                   <div className='content'>
                     {blog.meta}
                     <br />
-                    <small>{blog.created}</small>
+                    <small>{blog.created.toString}</small>
                   </div>
                 </div>
               </div>
@@ -103,15 +107,17 @@ class BodySection extends React.Component {
         </div>
       )
     }
-    const categorySessions = Object.keys(blogCategories).map((name, index) => {
-      return (
-        <section key={index} className={classNames('section', {'hidden': currentCategory === name})}>
-          <div className='container'>
-            {blogList(blogCategories[name])}
-          </div>
-        </section>
-      )
-    })
+    const categorySessions = blogCategories
+      ? Object.keys(blogCategories).map((name, index) => {
+        return (
+          <section key={index} className={classNames('section', {'hidden': currentCategory !== name})}>
+            <div className='container'>
+              {blogList(blogCategories[name])}
+            </div>
+          </section>
+        )
+      })
+      : <Loading />
     return (
       <div>
         {categorySessions}
@@ -121,17 +127,37 @@ class BodySection extends React.Component {
 }
 
 class Blogs extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      isLoading: true,
+      blogCategories: null
+    }
+  }
+
+  componentDidMount () {
+    const uri = '/postInfos.yml'
+    axios.get(uri).then(({data}) => {
+      const posts = yaml.load(data)
+      const categories = buildCategories(posts)
+      // article = marked(data)
+      this.setState({ isLoading: false, blogCategories: categories, currentCategory: categories[0] })
+      browserHistory.push('/blogs/swe')
+    })
+  }
+
   render () {
-    const { props: { location: { pathname }, params: { category } } } = this
+    const { props: { location: { pathname } }, props: { params: { category } }, state: { blogCategories } } = this
 
     return (
       <div>
         <section className={classNames('hero', 'is-info')}>
           <Navigation pathname={pathname} />
           <HeroBody />
-          <HeroFoot currentCategory={category} />
+          <HeroFoot currentCategory={category} blogCategories={blogCategories} />
         </section>
-        <BodySection currentCategory={category} />
+        <BodySection currentCategory={category} blogCategories={blogCategories} />
       </div>
     )
   }
