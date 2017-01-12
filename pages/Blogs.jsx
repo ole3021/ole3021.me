@@ -34,7 +34,7 @@ class HeroFoot extends React.Component {
       ? Object.keys(blogCategories).map((name, index) => {
         return <li key={index}
           className={classNames({'is-active': currentCategory === name})}>
-          <Link to={`/blogs/${name}`}>{name}</Link>
+          <Link to={`/blogs/${name}`}>{name.replace('_', ' ')}</Link>
         </li>
       })
       : null
@@ -137,13 +137,16 @@ class Blogs extends React.Component {
   }
 
   componentDidMount () {
+    const { props: { params: { category } } } = this
     const postInfoPath = '/postInfos.yml'
     axios.get(postInfoPath).then(({data}) => {
       const posts = yaml.load(data)
       const categories = buildCategories(posts)
       // article = marked(data)
       this.setState({ isLoading: false, blogCategories: categories })
-      browserHistory.push(`/blogs/${Object.keys(categories)[0]}`)
+      if (!category) {
+        browserHistory.push(`/blogs/${Object.keys(categories)[0]}`)
+      }
     })
   }
 

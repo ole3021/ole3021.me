@@ -24,7 +24,7 @@
   path: /_posts/Knowledge/Pomodoro.md
 - title: "敏捷开发知识总结"
   meta: 《敏开武士》阅读总结，包含敏捷开发的团队建设，项目开发，项目管理，以及如何交付敏捷项目的开发结果。
-  category: Software Enginerring
+  category: Software_Enginerring
   tags: [code, agile]
   cover: /assets/images/post/agile-samurai.jpg
   color: '#606060'
