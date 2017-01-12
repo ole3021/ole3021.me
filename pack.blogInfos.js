@@ -5,7 +5,7 @@ const POST_PATTERN = './_posts/**/*.md'
 const POST_INFO_FILE = './postInfos.yml'
 
 const parseInfo = post => {
-  if (post.startsWith('---') || post.startsWith('= yaml =')) {
+  if (post.startsWith('---')) {
     const postParts = post.split('---')
     return postParts[1].split('\n').reduce((pre, cur) => {
       if (cur) {

@@ -8,23 +8,22 @@ import yaml from 'js-yaml'
 import Navigation from '../components/Navigation'
 import Loading from '../components/Loading'
 
-import { buildTitles } from '../utils'
-let article = null
+import { buildTitles, getPostArticle } from '../utils'
 
 class HeroBody extends React.Component {
   render () {
     const { props: { post } } = this
     const postTitle = post
       ? <div className='container'>
-          <div className='column'>
-            <p className='title'>
-              {post.title}
-            </p>
-            <p className='subtitle'>
-              {post.meta}
-            </p>
-          </div>
+        <div className='column'>
+          <p className='title'>
+            {post.title}
+          </p>
+          <p className='subtitle'>
+            {post.meta}
+          </p>
         </div>
+      </div>
       : null
     return (
       <div className='hero-body'>
@@ -40,7 +39,8 @@ class Post extends React.Component {
 
     this.state = {
       isLoading: true,
-      blogTitles: null
+      blogTitles: null,
+      post: null
     }
   }
 
@@ -50,28 +50,24 @@ class Post extends React.Component {
     axios.get(postInfoPath).then(({data}) => {
       const posts = yaml.load(data)
       const blogTitles = buildTitles(posts)
-      console.log('>>> title', blogTitles);
       if (blogTitles[title]) {
         const blogUri = blogTitles[title].path
         this.setState({blogTitles: blogTitles})
         axios.get(blogUri).then(({data}) => {
-          article = marked(data)
-          this.setState({ isLoading: false })
+          this.setState({ isLoading: false, post: marked(getPostArticle(data)) })
         })
       } else {
         browserHistory.push('/404')
       }
-
     })
   }
 
   render () {
-    const { props: { location: { pathname }, params: { title } }, state: { isLoading, blogTitles } } = this
-    // console.log('>> post ', blogTitles[title]);
-    const post = <section className='section'>
+    const { props: { location: { pathname }, params: { title } }, state: { isLoading, blogTitles, post } } = this
+    const postPage = <section className='section'>
       <div className='container'>
         <div className='content'>
-          <article className='article' dangerouslySetInnerHTML={{__html: article}} />
+          <article className='article' dangerouslySetInnerHTML={{__html: post}} />
         </div>
       </div>
     </section>
@@ -84,7 +80,7 @@ class Post extends React.Component {
         </section>
         {isLoading
           ? <Loading />
-          : post
+          : postPage
         }
       </div>
     )
