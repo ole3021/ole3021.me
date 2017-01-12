@@ -142,8 +142,8 @@ class Blogs extends React.Component {
       const posts = yaml.load(data)
       const categories = buildCategories(posts)
       // article = marked(data)
-      this.setState({ isLoading: false, blogCategories: categories, currentCategory: categories[0] })
-      browserHistory.push('/blogs/swe')
+      this.setState({ isLoading: false, blogCategories: categories })
+      browserHistory.push(`/blogs/${Object.keys(categories)[0]}`)
     })
   }
 
