@@ -27,12 +27,18 @@ const generateYaml = infos => infos.reduce((pre, cur) => {
   return pre
 }, '')
 
+const blogPaths = []
 const infos = globSync(POST_PATTERN)
-  .map(filename => fs.readFileSync(filename, 'utf8'))
+  .map(filename => {
+    // console.log('>>> filename', filename);
+    blogPaths.push(filename.slice(1))
+    return fs.readFileSync(filename, 'utf8')
+  })
   .map(file => parseInfo(file))
-  .reduce((pre, cur) => {
+  .reduce((pre, cur, currentIndex) => {
     // Remove null from array
     if (cur) {
+      cur.push(`path: ${blogPaths[currentIndex]}`)
       pre = pre.concat([cur])
     }
     return pre
