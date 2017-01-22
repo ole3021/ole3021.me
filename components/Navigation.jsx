@@ -16,8 +16,8 @@ class Navigation extends React.Component {
   render () {
     const homeLInk = '/'
     const blogsLink = 'blogs'
-    const worksLink = 'works'
-    const aboutLink = 'about'
+    const worksLink = '/' // works
+    const aboutLink = '/' // about
     const repoLink = 'https://github.com/ole3021'
 
     const { props: { pathname }, state: { isActive } } = this

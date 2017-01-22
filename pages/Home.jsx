@@ -12,7 +12,7 @@ class HeroBody extends React.Component {
             Under Development
           </h1>
           <h2 className='subtitle'>
-            Coming Soon....
+            Coming Soon（Only Blogs are available）....
           </h2>
         </div>
       </div>

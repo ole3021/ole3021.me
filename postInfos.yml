@@ -30,3 +30,11 @@
   color: '#606060'
   created: 2016-02-22
   path: /_posts/Software_Engineering/Agile_Development.md
+- title: "基于Github Pages的易用单页React站点"
+  meta: 基于Github Pages方便维护（上传／更新博客）的纯React静态单页网站，用做个人网站，用作记录和展示自己的个人博客和页面。
+  category: Works
+  tags: [code, work]
+  cover: /assets/images/post/blog.jpg
+  color: '#606060'
+  created: 2017-01-18
+  path: /_posts/Works/Github_Pages_blogs.md
