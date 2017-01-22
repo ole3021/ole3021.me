@@ -49,3 +49,5 @@ tl;dr: 现有的博客系统都比较繁琐，特别是在Github Pages上的页�
 
 ### 生成博客信息
 生成博客信息使用的是文件读取，执行命令`npm run generate`就可以自动生成根目录需要的配置文件`blogConfigs.yml`
+
+[博客源代码地址](https://github.com/ole3021/ole3021.me)
