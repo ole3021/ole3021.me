@@ -24,32 +24,35 @@ if (process.env.NODE_ENV === 'production') {
 export default {
   context: __dirname,
   entry: {
-    jsx: './index.jsx',
-    css: './assets/sass/app.scss'
+    'bundle.js': './index.jsx',
+    'bundle.css': './assets/sass/app.scss'
   },
   output: {
     path: `${__dirname}/build/`,
-    filename: 'bundle.js'
+    filename: '[name]'
   },
   module: {
     loaders: [
-      { test: /\.jsx?$/,
+      {
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['babel']
+        loader: 'babel-loader'
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style-loader', ['css-loader?sourceMap', 'sass-loader?sourceMap'])
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
       }
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css']
+    extensions: ['.js', '.jsx', '.css']
   },
   plugins,
   devServer: {
     port: 4999,
-    colors: true,
     hot: true,
     historyApiFallback: {
       index: './index.html'
