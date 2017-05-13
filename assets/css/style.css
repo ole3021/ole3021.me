@@ -1,8 +1,12 @@
-/* Styles for site ole3021.me
------------------------------by Oliver.W
-*/
+/**************************
+ Styles for site ole3021.me
+ ---------------by Oliver.W
+***************************/
 
-/* micro clear fix */
+/***************
+ Micro clear fix
+  fixing cllapse
+****************/
 .grouping:before
 .grouping:after {
   content: " ";
@@ -11,7 +15,45 @@
 .grouping:after {
   clear: both;
 }
-/*---micro clear fix---*/
+
+/**************
+ Modular Styles
+***************/
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.clear {
+  clear: both;
+}
+.bold {
+  font-weight: bold;
+}
+.hidden,
+.hide {
+  display: none;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.text-centered {
+  text-align: center;
+}
+
+/********
+ Core fix
+*********/
 
 img, iframe, video, object {
   max-width: 100%;
@@ -20,7 +62,28 @@ strong, b {
   font-weight: bold;
 }
 
-body {
-  line-height: 1.4;
-  font-family: Arial, Helvetica, sans-serif;
+/***********
+ Core Styles
+************/
+
+section {
+  margin: 50px;
+}
+h1 {
+  font-size: 70px;
+  line-height:1.4;
+  font-weight: bold;
+  color: #0072ae;
+}
+.alt-headline {
+  font-size: 40px;
+}
+h2 {
+  font-size:26px;
+  font-style: italic;
+  color: #eb2428;
+  margin-bottom: 10px;
+}
+p {
+  font: normal normal 18px/1.6 Georgia, 'Times New Roman', serif;
 }
