@@ -1,0 +1,26 @@
+/* Styles for site ole3021.me
+-----------------------------by Oliver.W
+*/
+
+/* micro clear fix */
+.grouping:before
+.grouping:after {
+  content: " ";
+  display: table;
+}
+.grouping:after {
+  clear: both;
+}
+/*---micro clear fix---*/
+
+img, iframe, video, object {
+  max-width: 100%;
+}
+strong, b {
+  font-weight: bold;
+}
+
+body {
+  line-height: 1.4;
+  font-family: Arial, Helvetica, sans-serif;
+}
