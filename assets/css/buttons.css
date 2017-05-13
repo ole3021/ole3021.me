@@ -1,0 +1,57 @@
+/*******
+ Buttons
+********/
+
+.button {
+  border-radius: 0.25em;
+  background-color: #736BBA;
+  color: white;
+  padding: 10px 0;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1.5;
+  text-decoration: none;
+  transition: .20s all linear;
+}
+.button:focus,
+.button:hover {
+  background-color: #837AD3;
+}
+
+.button.narrow {
+  width: 25%;
+}
+
+.button.scale:focus,
+.button.scale:hover {
+  transform: scale(1.1,1.1);
+}
+
+.button.warning {
+  background-color: #E59927;
+  color: white;
+}
+.button.warning:focus,
+.button.warning:hover {
+  background-color: #FFAA2B;
+}
+
+.button.error {
+  background-color: #C94D44;
+  color: white;
+}
+.button.error:focus,
+.button.error:hover {
+  background-color: #E2574D;
+}
+
+.button.success {
+  background-color: #37B249;
+  color: white;
+}
+.button.success:focus,
+.button.success:hover {
+  background-color: #3FCC54;
+}
