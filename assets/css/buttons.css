@@ -1,10 +1,13 @@
 /*******
  Buttons
 ********/
+:root{
+  --success:#736BBA;
+}
 
 .button {
   border-radius: 0.25em;
-  background-color: #736BBA;
+  background-color: #837AD3;
   color: white;
   padding: 10px 0;
   display: block;
@@ -17,7 +20,7 @@
 }
 .button:focus,
 .button:hover {
-  background-color: #837AD3;
+  background-color: #968FD3;
 }
 
 .button.narrow {
@@ -30,28 +33,28 @@
 }
 
 .button.warning {
-  background-color: #E59927;
+  background-color: #F9CA3B;
   color: white;
 }
 .button.warning:focus,
 .button.warning:hover {
-  background-color: #FFAA2B;
+  background-color: #F9D66D;
 }
 
 .button.error {
-  background-color: #C94D44;
+  background-color: #E94B35;
   color: white;
 }
 .button.error:focus,
 .button.error:hover {
-  background-color: #E2574D;
+  background-color: #E87363;
 }
 
 .button.success {
-  background-color: #37B249;
+  background-color: #38C141;
   color: white;
 }
 .button.success:focus,
 .button.success:hover {
-  background-color: #3FCC54;
+  background-color: #5EC165;
 }

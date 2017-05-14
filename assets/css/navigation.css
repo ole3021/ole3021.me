@@ -1,0 +1,52 @@
+/**********
+ Navigation
+***********/
+.header {
+  background-color: #1F2342;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .logo {
+  padding-left: 10px;
+  color: white;
+  font-family: arial-black;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+nav ul {
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+nav li {
+  list-style-type: none;
+  transform: skew(-15deg);
+}
+nav li a {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-transform: uppercase;
+  font-size: 15px;
+  border-left: 2px solid #ddd;
+
+  text-align: center;
+  text-decoration: none;
+  padding: 15px 25px;
+  transition: .20s all linear;
+}
+nav li:last-child a {
+  border-right: 2px solid #ddd;
+}
+nav li a:focus,
+nav li a:hover,
+nav li a:active {
+  background-color: #3F4258;
+  color: white;
+}
