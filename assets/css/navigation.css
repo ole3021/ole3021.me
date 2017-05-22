@@ -2,7 +2,7 @@
  Navigation
 ***********/
 .header {
-  background-color: #1F2342;
+  background-color: var(--dark);
   position: fixed;
   left: 0;
   right: 0;
@@ -33,7 +33,7 @@ nav li a {
   color: white;
   text-transform: uppercase;
   font-size: 15px;
-  border-left: 2px solid #ddd;
+  border-left: 2px solid var(--dark-second);
 
   text-align: center;
   text-decoration: none;
@@ -41,11 +41,11 @@ nav li a {
   transition: .20s all linear;
 }
 nav li:last-child a {
-  border-right: 2px solid #ddd;
+  border-right: 2px solid var(--dark-second);
 }
 nav li a:focus,
 nav li a:hover,
 nav li a:active {
-  background-color: #3F4258;
+  background-color: var(--dark-active);
   color: white;
 }
