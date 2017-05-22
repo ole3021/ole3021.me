@@ -66,6 +66,10 @@ strong, b {
  Core Styles
 ************/
 
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 section {
   margin: 50px;
 }
