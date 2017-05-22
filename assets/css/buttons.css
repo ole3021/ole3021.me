@@ -5,7 +5,7 @@
 .button {
   border-radius: 0.25em;
   background-color: var(--purple);
-  color: white;
+  color: var(--white);
   padding: 10px 0;
   display: block;
   text-align: center;
@@ -30,7 +30,7 @@
 
 .button.warning {
   background-color: var(--yellow);
-  color: white;
+  color: var(--white);
 }
 .button.warning:focus,
 .button.warning:hover {
@@ -39,7 +39,7 @@
 
 .button.error {
   background-color: var(--red);
-  color: white;
+  color: var(--white);
 }
 .button.error:focus,
 .button.error:hover {
@@ -48,7 +48,7 @@
 
 .button.success {
   background-color: var(--green);
-  color: white;
+  color: var(--white);
 }
 .button.success:focus,
 .button.success:hover {

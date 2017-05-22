@@ -14,38 +14,103 @@
 }
 .header .logo {
   padding-left: 10px;
-  color: white;
+  color: var(--white);
   font-family: arial-black;
   font-size: 22px;
   letter-spacing: 3px;
 }
-nav ul {
-  padding-right: 10px;
+
+.toggle {
+  display: flex;
+  width: 60px;
+  height: 38px;
+  position: relative;
+  margin: 10px 10px;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+.toggle span {
+  display: block;
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  background: var(--white);
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.toggle span:nth-child(1) {
+  top: 0px;
+}
+
+.toggle span:nth-child(2) {
+  top: 15px;
+}
+
+.toggle span:nth-child(3) {
+  top: 30px;
+}
+
+.toggle.open span:nth-child(1) {
+  top: 15px;
+  transform: rotate(135deg);
+}
+
+.toggle.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.toggle.open span:nth-child(3) {
+  top: 15px;
+  transform: rotate(-135deg);
+}
+
+.menu {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-nav li {
+.menu li {
   list-style-type: none;
   transform: skew(-15deg);
 }
-nav li a {
-  color: white;
+.menu li a {
+  color: var(--white);
   text-transform: uppercase;
   font-size: 15px;
   border-left: 2px solid var(--dark-second);
-
   text-align: center;
   text-decoration: none;
   padding: 15px 25px;
   transition: .20s all linear;
 }
-nav li:last-child a {
+.menu li:last-child a {
   border-right: 2px solid var(--dark-second);
 }
-nav li a:focus,
-nav li a:hover,
-nav li a:active {
+.menu li a:focus,
+.menu li a:hover,
+.menu li a:active {
   background-color: var(--dark-active);
-  color: white;
+  color: var(--white);
+}
+
+@media only screen and (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .toggle {
+    display: none;
+  }
+  .menu {
+    padding-right: 10px;
+  }
 }

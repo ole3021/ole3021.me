@@ -44,9 +44,11 @@ strong, b {
   --purple-active: #968FD3;
   --red: #EA6A68;
   --red-active: #EB8585;
+  --white: white;
   --yellow: #FFB500;
   --yellow-active: #FFBC1A; /* 调亮 */
-
+  --screen-sm-min: 786px;
+  --screen-lg-min: 1200px;
 }
 
 html {
