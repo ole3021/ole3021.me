@@ -1,0 +1,69 @@
+.blogs {
+  padding-top: 1em;
+}
+
+.blogs .grid {
+  margin: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cell {
+  margin-top: 2em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+  border: 3px solid green;
+  z-index: -1;
+}
+
+.cell img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.cell .content {
+  position:absolute;
+  height:calc(100% - 60px);
+  z-index: 0;
+}
+.content h1 {
+  margin: 10px;
+  font-size: 2em;
+}
+.content p {
+  opacity: 0;
+  margin: 10px;
+  font-size: 1em;
+}
+
+.content p:focus,
+.content p:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .cell {
+  }
+}
+@media screen and (min-width: 600px) {
+  .cell {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .cell {
+    width: calc(25% - 2rem);
+  }
+}
