@@ -155,7 +155,6 @@ nav li a {
   .menu {
     display: none;
   }
-
   .menu.open {
     display: flex;
   }
