@@ -28,6 +28,11 @@
   letter-spacing: 3px;
 }
 
+.logo img {
+  margin-top: 5px;
+  height: 45px;
+}
+
 .toggle {
   display: flex;
   width: 45px;
