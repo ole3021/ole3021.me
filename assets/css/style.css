@@ -38,6 +38,7 @@ strong, b {
   --dark: #2C3136;
   --dark-active: #3E454C;
   --dark-second: #373D44;
+  --strong-dark: #1F1F1F;
   --green: #7DCF85;
   --green-active: #A2DDA8;
   --purple: #837AD3;
@@ -55,9 +56,7 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-section {
-  margin: 50px;
-}
+
 h1 {
   font-size: 70px;
   line-height:1.4;
