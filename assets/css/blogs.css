@@ -1,26 +1,160 @@
+
+/* Container
+---------------------------------------------------------------------- */
+
 .blogs {
-  padding-top: 1em;
+    padding: 1rem;
+    text-align: justify;
+    font-size: 0.1px;
 }
 
-.blogs .grid {
+.blogs:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+
+.blogs .item {
+    background: #fff;
+    border-top: .5rem solid currentColor;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+    position: relative;
+    background-color: green;
+}
+
+.blogs .item img {
+  position: absolute;
+  height: 90%;
+  top: 0;
+  left: 0;
+}
+
+.blogs .item .title {
+  /*position: static;*/
+  /*padding-top: 60%;*/
+  color: red;
+  font-size: 40px;
+  background: white;
+  width: 100px;
+  height: 50px;
+  z-index: 100;
+  left: 0;
+}
+
+.blogs .item .con {
+  position: absolute;
+  top: 0;
+  background-color: red;
+  width: 100%;
+  height: 100%;
+  display: flex
+
+}
+
+.test {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 30px;
+}
+
+.test .a {
+  width: 100%;
+  height: 30px;
+  background-color: yellow;
+}
+
+.test .b {
+  width: 100%;
+  height: 60px;
+  background-color: red;
+}
+
+.con div {
+  /*position: absolute;*/
+  color: black;
+  font-size: 40px;
+  height: 40px;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.blogs .item, .gap {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.blogs .item:before {
+    content: '';
+    display: inline-block;
+    padding-top: 80%;
+}
+
+/* Grid Breakpoints
+---------------------------------------------------------------------- */
+
+/* 2 Columns */
+
+.blogs .item, .gap {
+    width: calc(100% - (((2 - 1) * 1rem) / 2));
+}
+
+/* 3 Columns */
+
+@media screen and (min-width: 541px) {
+  .blogs .item, .gap {
+    width: calc(100%/3 - (((3 - 1) * 1rem) / 3));
+  }
+}
+
+/* 4 Columns */
+
+@media screen and (min-width: 961px) {
+  .blogs .item, .gap {
+    width: calc(100%/4 - (((4 - 1) * 1rem) / 4));
+  }
+}
+
+/* 5 Columns */
+
+@media screen and (min-width: 1281px) {
+  .blogs .item, .gap {
+    width: calc(100%/5 - (((5 - 1) * 1rem) / 5));
+  }
+}
+
+/*div.stretchy-wrapper {
+  position: relative;
+}
+
+div.stretchy-wrapper > div {
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+}*/
+
+/*.blogs ul {
   margin: 2em;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.cell {
+.blogs li {
   margin-top: 2em;
-  cursor: pointer;
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 200px;
+  height: 100px;
+  height: 330px;
   border: 3px solid green;
   z-index: -1;
 }
 
-.cell img {
+.blogs img {
   height: 100%;
   width: 100%;
   position: absolute;
@@ -28,7 +162,13 @@
   left: 0;
   z-index: 0;
 }
-.cell .content {
+
+.blogs li a {
+  display: flex;
+  cursor: pointer;
+}*/
+
+/*.content {
   position:absolute;
   height:calc(100% - 60px);
   z-index: 0;
@@ -41,29 +181,4 @@
   opacity: 0;
   margin: 10px;
   font-size: 1em;
-}
-
-.content p:focus,
-.content p:hover {
-  opacity: 1;
-}
-
-@media screen and (max-width: 600px) {
-  .grid {
-    display: flex;
-    flex-direction: column;
-  }
-  .cell {
-  }
-}
-@media screen and (min-width: 600px) {
-  .cell {
-    width: calc(50% - 2rem);
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  .cell {
-    width: calc(25% - 2rem);
-  }
-}
+}*/
