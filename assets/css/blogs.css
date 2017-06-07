@@ -13,6 +13,52 @@
   --sm-content-height: 10vw;
 }
 
+/* Blog Filter CSS */
+.blogs-filter {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--white);
+  user-select: none;
+}
+.blogs-filter ul {
+  margin: 0 0;
+}
+.blogs-filter li {
+  list-style-type: none;
+}
+.blogs-filter a {
+  display: inline-block;
+  line-height: 50px;
+  height: 50px;
+  font-size: 1.1em;
+  text-decoration: none;
+  color: var(--grey)
+}
+.blogs-filter a:hover {
+  font-size: 1.1em;
+  text-decoration: none;
+  color: var(--strong-purple);
+}
+.blogs-filter a.mixitup-control-active {
+  color: var(--strong-purple);
+  box-shadow: inset 0 -2px 0 var(--strong-purple);
+}
+
+.blogs-filter .sort {
+  display: flex;
+  margin-right: auto;
+}
+
+.blogs-filter .categories {
+  display: flex;
+  position: absolute;
+}
+.blogs-filter .categories a {
+  padding: 0 0.3em;
+}
+
+/* Blogs */
 .blogs {
   display: flex;
   flex-wrap: wrap;
@@ -27,7 +73,6 @@
 .info .cover {
   overflow: hidden;
 }
-
 .info .cover img{
   width: 100%;
   height: 100%;
@@ -39,7 +84,6 @@
   background-color: var(--green);
   border-radius: 0 0 .5em .5em;
 }
-
 .info .content h1 {
   padding: 0;
   margin: 0;
@@ -70,7 +114,6 @@
     height: var(--sm-content-height);
   }
 }
-
 /*Tablet*/
 @media only screen and (min-width: 768px) {
   .info {
@@ -86,7 +129,6 @@
     height: var(--m-content-height);
   }
 }
-
 /*Desktop*/
 @media only screen and (min-width: 1280px) {
   .info {

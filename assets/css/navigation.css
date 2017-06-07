@@ -8,10 +8,12 @@
   top: 0;
   display: flex;
   flex-direction: column;
+  user-select: none;
 }
 
 .body {
   margin-top: 50px;
+  background-color: #E7E7E7;
 }
 
 .header {

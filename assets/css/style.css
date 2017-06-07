@@ -41,15 +41,18 @@ strong, b {
   --strong-dark: #1F1F1F;
   --green: #7DCF85;
   --green-active: #A2DDA8;
+  --grey: #9A9A9A;
   --purple: #837AD3;
   --purple-active: #968FD3;
+  --strong-purple: #41307C;
   --red: #EA6A68;
   --red-active: #EB8585;
   --white: white;
   --yellow: #FFB500;
   --yellow-active: #FFBC1A; /* 调亮 */
+  --screen-lg-min: 1280px;
   --screen-sm-min: 786px;
-  --screen-lg-min: 1200px;
+
 }
 
 html {
