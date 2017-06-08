@@ -129,7 +129,7 @@ nav li a {
 .toggle-menu {
   display: flex;
   flex-direction: column;
-  background-color: #2C3136;
+  background-color: var(--dark);
 }
 .toggle-menu li {
   display: flex;
