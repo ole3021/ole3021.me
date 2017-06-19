@@ -91,7 +91,7 @@ Cons:
 
 | 关系                     | 适用于  | key  |
 | ---------------------- | ---- | ---- |
-| EmbedsOne              |      |      |
-| EmbedsMany             |      |      |
+| EmbedsOne              |      | left |
+| EmbedsMany             |      | left |
 | EmbedsMany + BelongsTo |      |      |
-| References             |      |      |
+| References             |      | left |
