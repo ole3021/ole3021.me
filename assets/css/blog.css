@@ -1,0 +1,47 @@
+/**********
+ Blog
+***********/
+:root {
+  --l-info-width: 500px;
+  --m-info-width: 400px;
+}
+
+.blog {
+  /*height: 1000px;*/
+  display: flex;
+}
+
+.blog .content {
+  /*width: 100%;*/
+  height: 100%;
+  background-color: var(--white);
+}
+
+.blog .info {
+  width: var(--info-width) !important;
+  height: 100%;
+  background-color: var(--green);
+}
+
+/*Mobile*/
+@media only screen and (max-width: 767px) {
+  .blog .content {
+    width: 100vw;
+  }
+
+  .blog .info {
+    display: none;
+  }
+}
+/*Tablet*/
+@media only screen and (min-width: 767px) {
+  .blog .info {
+    width: var(--m-info-width) !important;
+  }
+}
+/*Desktop*/
+@media only screen and (min-width: 1280px) {
+  .blog .info {
+    width: var(--l-info-width) !important;
+  }
+}
