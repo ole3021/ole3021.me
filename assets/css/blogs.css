@@ -2,27 +2,30 @@
  Blogs
 ***********/
 :root {
-  --l-info-width: 24%;
-  --l-info-height: 15vw;
-  --l-cover-height: 10vw;
-  --l-content-height: 5vw;
-  --m-info-width: 32%;
-  --m-info-height: 15vw;
-  --m-cover-height: 10vw;
-  --m-content-height: 5vw;
-  --sm-info-width: 100%;
-  --sm-info-height: 40vw;
-  --sm-cover-height: 30vw;
-  --sm-content-height: 10vw;
+  --l-card-width: 24%;
+  --l-card-height: 400px;
+  --l-cover-height: 200px;
+  --l-content-height: 170px;
+  --m-card-width: 32%;
+  --m-card-height: 400px;
+  --m-cover-height: 200px;
+  --m-content-height: 170px;
+  --sm-card-width: 100%;
+  --sm-card-height: 200px;
+  --sm-cover-width: 60vw;
+  --sm-content-width: 55vw;
 }
 
 /* Blog Filter CSS */
 .blogs-filter {
+  position: fixed;
+  width: 100%;
   height: 50px;
   display: flex;
   justify-content: center;
   background-color: var(--white);
   user-select: none;
+  z-index: 2;
 }
 .blogs-filter ul {
   margin: 0 0;
@@ -36,7 +39,8 @@
   height: 50px;
   font-size: 1.1em;
   text-decoration: none;
-  color: var(--grey)
+  background-color: var(--white);
+  color: var(--grey);
 }
 .blogs-filter a:hover {
   font-size: 1.1em;
@@ -73,57 +77,75 @@
 /* Blogs */
 .blogs {
   display: flex;
+  position: relative;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 16px 16px;
+  padding-top: 66px;
+  z-index: 1;
 }
 
-.info {
+.card {
   margin-bottom: 2vw;
+  background-color: var(--white);
 }
 
-.info .cover {
+.card .cover {
+  position: relative;
   overflow: hidden;
+  z-index: 1;
 }
-.info .cover img{
+.card .cover img{
   width: 100%;
   height: 100%;
-  border-radius: .5em .5em 0 0;
 }
 
-.info .content {
-  height: var(--l-content-height);
-  background-color: var(--green);
-  border-radius: 0 0 .5em .5em;
+.card .content {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  background-color: var(--white);
+  margin: -30px 20px 20px 20px;
+  padding: 20px 20px;
+  z-index: 2;
 }
-.info .content h1 {
-  padding: 0;
-  margin: 0;
-  font-size: 1.6em;
-}
-.info .content p {
+.card .content h1 {
   padding: 0;
   margin: 0;
   font-size: 1em;
-  padding: 10px 0;
+}
+.card hr {
+  width: 100%;
+  height: 1px;
+  color: var(--grey);
+}
+.card .content p {
+  font-size: 1em;
+  word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  margin: 0 0;
 }
 
 /*Mobile*/
-@media only screen and (max-width: 768px) {
-  .info {
-    width: var(--sm-info-width);
-    height: var(--sm-info-height);
-    margin-bottom: 2vw;
+@media only screen and (max-width: 767px) {
+  .card {
+    display: flex;
+    flex-direction: row;
+    width: var(--sm-card-width);
+    height: var(--sm-card-height);
+    margin-bottom: 20px;
   }
 
-  .info .cover {
-    height: var(--sm-cover-height);
+  .card .cover {
+    height: var(--sm-card-height);
+    width: var(--sm-cover-width);
   }
-  .info .content {
-    height: var(--sm-content-height);
+  .card .content {
+    height: 150px;
+    width: var(--sm-content-width);
+    margin: 30px 0 0 -60px;
+    padding: 10px 10px;
   }
 
   .blogs-filter .categories {
@@ -132,7 +154,6 @@
     flex-direction: column;
     align-items: center;
     position: absolute;
-    background-color: var(--white)
   }
   .blogs-filter .categories li {
     width: 100%;
@@ -160,31 +181,32 @@
   }
 }
 /*Tablet*/
-@media only screen and (min-width: 768px) {
-  .info {
-    width: var(--m-info-width);
-    height: var(--m-info-height);
+@media only screen and (min-width: 767px) {
+  .card {
+    width: var(--m-card-width);
+    height: var(--m-card-height);
+    background: var(--white);
   }
 
-  .info .cover {
+  .card .cover {
     height: var(--m-cover-height);
   }
 
-  .info .content {
+  .card .content {
     height: var(--m-content-height);
   }
 }
 /*Desktop*/
 @media only screen and (min-width: 1280px) {
-  .info {
-    width: var(--l-info-width);
-    height: var(--l-info-height);
+  .card {
+    width: var(--l-card-width);
+    height: var(--l-card-height);
   }
 
-  .info .cover {
+  .card .cover {
     height: var(--l-cover-height);
   }
-  .info .content {
+  .card .content {
     height: var(--l-content-height);
   }
 }
