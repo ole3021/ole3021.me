@@ -78,7 +78,7 @@ class BodySection extends React.Component {
                   <div className='content'>
                     {blog.meta}
                     <br />
-                    <small>{blog.created.toString}</small>
+                    <small>{blog.created || 'null'}</small>
                   </div>
                 </div>
               </div>

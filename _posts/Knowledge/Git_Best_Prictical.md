@@ -5,7 +5,7 @@ category: Knowledge
 tags: [git]
 cover: /assets/images/post/git.jpg
 color: '#FFFFFF'
-created: 2016-08-03
+created: '2016-08-03'
 ---
 # Git 管理最佳实践
 ##### _文章内容参考 Vincent Driessen 的 [A Successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)_

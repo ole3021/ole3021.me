@@ -5,7 +5,7 @@ category: Knowledge
 tags: [agile]
 cover: /assets/images/post/pomodoro.jpg
 color: '#606060'
-created: 2016-03-08
+created: '2016-03-08'
 ---
 # 番茄工作法
 

@@ -5,7 +5,7 @@ category: Works
 tags: [code, work]
 cover: /assets/images/post/blog.jpg
 color: '#606060'
-created: 2017-01-18
+created: '2017-01-18'
 ---
 
 # 基于Github Pages的易用单页React站点
@@ -34,7 +34,7 @@ tl;dr: 现有的博客系统都比较繁琐，特别是在Github Pages上的页�
 网站主题样式使用[Bulma](http://bulma.io/),来构建布局和部分css可实现的组件。
 
 ### 目录生成
-使用Nodejs的fs读取`_posts`目录下的所有`*.md`文件，并从中解析出yaml header, 然后保存到根目录下的`blogConfigs.yml`。
+使用Nodejs的fs读取`_posts`目录下的所有`*.md`文件，并从中解析出yaml header, 然后保存到根目录下的`blogInfos.yml`。
 
 ### 动态加载
 网站所有的配置文件yaml都在访问页面之前发送文件请求请求后解析相应的文件再根据返回文件的数据渲染要生成的页面，来实现动态加载的效果。
@@ -48,6 +48,6 @@ tl;dr: 现有的博客系统都比较繁琐，特别是在Github Pages上的页�
 构建网站使用Webpack打包工具打包并压缩React文件， 执行命令`npm run build`就可以讲所有前端页面打包并压缩后保存在`build`目录中。
 
 ### 生成博客信息
-生成博客信息使用的是文件读取，执行命令`npm run generate`就可以自动生成根目录需要的配置文件`blogConfigs.yml`
+生成博客信息使用的是文件读取，执行命令`npm run generate`就可以自动生成根目录需要的配置文件`blogInfos.yml`
 
 [博客源代码地址](https://github.com/ole3021/ole3021.me)
