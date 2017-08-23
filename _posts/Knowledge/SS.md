@@ -104,11 +104,11 @@ Vultr主机选择配置如下：
     sysctl -a|grep congestion_control
     ```
 
-4. 安装pip
+4. 安装pip和shadowsocks
 
     ```
-    curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-    python get-pip.py
+    yum install python-setuptools && easy_install pip
+    pip install shadowsocks
     ```
 
 5. 创建SS的配置文件 `/etc/shadowsocks.json`
