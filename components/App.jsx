@@ -7,9 +7,9 @@ class App extends React.Component {
     const { props: { children } } = this
 
     return (
-      <div>
+      <div className="uk-offcanvas-content">
         {children}
-        <Footer />
+        <Footer/>
       </div>
     )
   }

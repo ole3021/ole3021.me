@@ -16,6 +16,7 @@ class Navigation extends React.Component {
   render () {
     const homeLInk = '/'
     const blogsLink = 'blogs'
+    const postLink = 'post'
     const worksLink = '/' // works
     const aboutLink = '/' // about
     const repoLink = 'https://github.com/ole3021'
@@ -24,49 +25,58 @@ class Navigation extends React.Component {
     const currentNav = navFromPath(pathname)
 
     return (
-      <div className='hero-head'>
-        <header className='nav'>
-          <div className='container'>
-            <div className='nav-left'>
-              <Link to={homeLInk} className='nav-item is-brand'>
-                <b>OLE3021</b>
-              </Link>
-            </div>
-            <span className={classNames('nav-toggle', {'is-active': isActive})}
-              onClick={() => { this.setState({isActive: !isActive}) }}>
-              <span />
-              <span />
-              <span />
-            </span>
-            <div className={classNames('nav-right', 'nav-menu',
-              {'is-active': isActive})}>
-              <Link to={homeLInk} className={classNames('nav-item',
-                {'is-active': currentNav === homeLInk})}>
-                Home
-              </Link>
-              <Link to={blogsLink} className={classNames('nav-item',
-                {'is-active': currentNav === blogsLink || currentNav === 'post'})}>
-                Blogs
-              </Link>
-              <Link to={worksLink} className={classNames('nav-item',
-                {'is-active': currentNav === worksLink})}>
-                Works
-              </Link>
-              <Link to={aboutLink} className={classNames('nav-item',
-                {'is-active': currentNav === aboutLink})}>
-                About
-              </Link>
-              <span className='nav-item'>
-                <span className='icon'>
-                  <a target='_blank' href={repoLink}>
-                    <i className='fa fa-github' />
-                  </a>
-                </span>
-              </span>
+      <div className="container">
+        <nav className="uk-navbar">
+          <div className="uk-navbar-left">
+            <Link to={homeLInk} className='uk-navbar-item uk-logo'>
+              <b>OLE3021</b>
+            </Link>
+          </div>
+          <div className="uk-navbar-right uk-visible@s">
+              <ul className="uk-navbar-nav">
+                <li className={classNames({'uk-invisible': currentNav === homeLInk || !currentNav})}>
+                  <Link to={homeLInk}>
+                    Home
+                  </Link>
+                </li>
+                <li className={classNames({'uk-active': currentNav === blogsLink || currentNav === postLink})}>
+                  <Link to={blogsLink}>
+                    Blogs
+                  </Link>
+                </li>
+                <li className={classNames("uk-disabled", {'uk-active': currentNav === worksLink})}>
+                  <Link to={worksLink}>
+                    Works
+                  </Link>
+                </li>
+                <li className={classNames("uk-disabled", {'uk-active': currentNav === aboutLink})}>
+                  <Link to={aboutLink}>
+                    About
+                  </Link>
+                </li>
+              </ul>
+              <div className="uk-navbar-item">
+                <a href={repoLink} className="uk-icon-button" data-uk-icon={"icon: github"}></a>
+              </div>
+          </div>
+          <div className="uk-navbar-right uk-hidden@s">
+            <a className="uk-navbar-toggle" data-uk-navbar-toggle-icon href="#modal-full" data-uk-icon={"icon: menu"} data-uk-toggle></a>
+            <div id="modal-full" className="uk-modal-full" data-uk-modal>
+              <div className="uk-modal-dialog">
+                <button className="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
+                  <div className="uk-grid-collapse uk-flex-middle" data-uk-grid>
+                      <div className="uk-background-cover"  data-uk-height-viewport></div>
+                      <div className="uk-padding-large">
+                        <h1>Menu</h1>
+                        <p>menue</p>
+                      </div>
+                  </div>
+              </div>
             </div>
           </div>
-        </header>
+        </nav>
       </div>
+      
     )
   }
 }

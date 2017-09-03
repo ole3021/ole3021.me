@@ -8,120 +8,61 @@ import Navigation from '../components/Navigation'
 import Loading from '../components/Loading'
 import { buildCategories } from '../utils'
 
-class HeroBody extends React.Component {
-  render () {
-    return (
-      <div className='hero-body'>
-        <div className='container'>
-          <div className='column'>
-            <p className='title'>
-              Blogs
-            </p>
-            <p className='subtitle'>
-              Personal blogs.
-            </p>
-          </div>
-        </div>
-      </div>
-    )
-  }
-}
-
-class HeroFoot extends React.Component {
+class CategoryTabs extends React.Component {
   render () {
     const { props: { blogCategories, currentCategory } } = this
-    const categoryNavs = blogCategories
+
+    const CategoryNavs = blogCategories
       ? Object.keys(blogCategories).map((name, index) => {
         return <li key={index}
-          className={classNames({'is-active': currentCategory === name})}>
+          className={classNames({'uk-active': currentCategory === name})}>
           <Link to={`/blogs/${name}`}>{name.replace('_', ' ')}</Link>
         </li>
       })
       : null
     return (
-      <div className='hero-foot'>
-        <div className='container'>
-          <div className='tabs is-centered is-boxed'>
-            <ul>
-              {categoryNavs}
-            </ul>
-          </div>
-        </div>
-      </div>
+      <ul className="uk-subnav uk-subnav-pill" data-uk-switcher>
+        {CategoryNavs}
+      </ul>      
     )
   }
 }
 
-class BodySection extends React.Component {
+class CategoryBlogs extends React.Component {
   render () {
     const { props: { blogCategories, currentCategory } } = this
+    
     const blogList = (blogs) => {
-      // Create eacth blog react component
-      const blogItems = blogs.map((blog, index) => {
-        return (
-          <Link key={index} to={`/post/${blog.title}`} className='column is-one-quarter'>
-            <section>
-              <div className='card is-fullwidth'>
-                <div className='card-image'>
-                  <figure className='image is-16by9'>
-                    <img src={blog.cover} alt='Image' />
-                  </figure>
-                </div>
-                <div className='card-content'>
-                  <div className='media'>
-                    <div className='media-content'>
-                      <p className='title is-4'>{blog.title}</p>
-                      <p className='subtitle is-6'>{blog.tags}</p>
-                    </div>
-                  </div>
-
-                  <div className='content'>
-                    {blog.meta}
-                    <br />
-                    <small>{blog.created || 'null'}</small>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </Link>
-        )
-      }).reduce((pre, blogItem) => {
-        // Group blog components for each column
-        pre.length === 0
-          ? pre.push([blogItem])
-          : pre[pre.length - 1].length < 4
-            ? pre[pre.length - 1].push(blogItem)
-            : pre.push([blogItem])
-        return pre
-      }, []).map((blogColumn, index) => {
-        return (
-          <div key={index} className='columns'>
-            {blogColumn}
+      const blogItems = blogs.map((blog, index) => 
+        <Link key={index} to={`/post/${blog.title}`} className="uk-width-1-4@m">
+          <div className="uk-card uk-card-default">
+            <div className="uk-card-media-top">
+              <img src={ blog.cover } alt="" />
+            </div>
+            <div className="uk-card-body">
+              <h3 className="uk-card-title">{blog.title}</h3>
+              <p>{blog.meta}</p>
+            </div>
           </div>
-        )
-      })
-
+        </Link>
+      )
       return (
-        <div className='content'>
+        <div className="uk-grid-medium uk-child-width-expand@s uk-text-center" data-uk-grid>
           {blogItems}
         </div>
       )
     }
-    const categorySessions = blogCategories
-      ? Object.keys(blogCategories).map((name, index) => {
-        return (
-          <section key={index} className={classNames('section', {'hidden': currentCategory !== name})}>
-            <div className='container'>
-              {blogList(blogCategories[name])}
-            </div>
-          </section>
-        )
-      })
+
+    const blogByCategories = blogCategories
+      ? Object.keys(blogCategories).map((name, index) => 
+        <li key={index}>{blogList(blogCategories[name])}</li>
+      )
       : <Loading />
+
     return (
-      <div>
-        {categorySessions}
-      </div>
+      <ul className="uk-switcher uk-margin">
+        {blogByCategories}
+      </ul>
     )
   }
 }
@@ -154,13 +95,12 @@ class Blogs extends React.Component {
     const { props: { location: { pathname } }, props: { params: { category } }, state: { blogCategories } } = this
 
     return (
-      <div>
-        <section className={classNames('hero', 'is-info')}>
-          <Navigation pathname={pathname} />
-          <HeroBody />
-          <HeroFoot currentCategory={category} blogCategories={blogCategories} />
-        </section>
-        <BodySection currentCategory={category} blogCategories={blogCategories} />
+      <div className="uk-container">
+        <Navigation pathname={pathname} />
+        <div className="uk-flex uk-flex-column uk-flex-middle">
+          <CategoryTabs currentCategory={category} blogCategories={blogCategories}/>
+          <CategoryBlogs currentCategory={category} blogCategories={blogCategories} />
+        </div>
       </div>
     )
   }

@@ -5,8 +5,8 @@ import App from './components/App'
 import Post from './pages/Post'
 import Blogs from './pages/Blogs'
 import Home from './pages/Home'
-import Test from './pages/Test'
-import NotFound from './pages/NotFound'
+// import Test from './pages/Test'
+// import NotFound from './pages/NotFound'
 
 export default (
   <Route path='/' mapMenuTitle='Home' component={App}>
@@ -22,8 +22,8 @@ export default (
       <Route path=':title' component={Post} />
     </Route>
 
-    <Route path='test' component={Test} />
-    <Route path='404' component={NotFound} />
+    {/* <Route path='test' component={Test} /> */}
+    {/* <Route path='404' component={NotFound} /> */}
 
     <Route path='*'>
       <IndexRedirect to='/404' />
