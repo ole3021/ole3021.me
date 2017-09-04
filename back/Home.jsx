@@ -66,7 +66,7 @@ class Home extends React.Component {
           <Navigation pathname={pathname} />
           <HeroBody />
         </section>
-        <IntroSection />
+        {/* <IntroSection /> */}
       </div>
 
     )

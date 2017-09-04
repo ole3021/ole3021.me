@@ -60,15 +60,35 @@ class Navigation extends React.Component {
               </div>
           </div>
           <div className="uk-navbar-right uk-hidden@s">
-            <a className="uk-navbar-toggle" data-uk-navbar-toggle-icon href="#modal-full" data-uk-icon={"icon: menu"} data-uk-toggle></a>
-            <div id="modal-full" className="uk-modal-full" data-uk-modal>
+            <a className="uk-navbar-toggle" data-uk-icon={"icon: menu"} data-uk-toggle={"#modal-menu"}></a>
+            <div id="modal-menu" className="uk-modal-full" data-uk-modal>
               <div className="uk-modal-dialog">
                 <button className="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
-                  <div className="uk-grid-collapse uk-flex-middle" data-uk-grid>
+                  <div className="uk-grid-collapse uk-flex-center uk-flex-middle" data-uk-grid>
                       <div className="uk-background-cover"  data-uk-height-viewport></div>
                       <div className="uk-padding-large">
-                        <h1>Menu</h1>
-                        <p>menue</p>
+                        <ul className="uk-nav uk-nav-default uk-nav-center">
+                          <li className={classNames({'uk-invisible': currentNav === homeLInk || !currentNav})}>
+                            <a href={homeLInk}>
+                              <h1>Home</h1>
+                            </a>
+                          </li>
+                          <li className={classNames({'uk-active': currentNav === blogsLink || currentNav === postLink})}>
+                            <a href={blogsLink}>
+                              <h1>Blogs</h1>
+                            </a>
+                          </li>
+                          <li className={classNames("uk-disabled", {'uk-active': currentNav === worksLink})}>
+                            <a href={worksLink}>
+                              <h1>Works</h1>
+                            </a>
+                          </li>
+                          <li className={classNames("uk-disabled", {'uk-active': currentNav === aboutLink})}>
+                            <a href={aboutLink}>
+                              <h1>About</h1>
+                            </a>
+                          </li>
+                        </ul>
                       </div>
                   </div>
               </div>

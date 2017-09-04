@@ -6,10 +6,12 @@ import Navigation from '../components/Navigation'
 class IntroSection extends React.Component {
   render () {
     return (
-      <div className="uk-section-primary uk-section" data-uk-height-viewport>
-        <div className="uk-container">
-          <h1>网站升级中，可查阅博客。</h1>
-          <h1>Undever development, check the blogs please.</h1>
+      <div className="uk-section-primary uk-section">
+        <div className="uk-flex-center uk-flex-middle" data-uk-grid data-uk-height-viewport>
+          <ul>
+            <h1>网站升级中，可查阅博客。</h1>
+            <h1>Undever development, check the blogs please.</h1>
+          </ul>
         </div>
       </div>
     )
