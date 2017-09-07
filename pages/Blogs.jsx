@@ -15,7 +15,16 @@ class CategoryTabs extends React.Component {
     const CategoryNavs = blogCategories
       ? Object.keys(blogCategories).map((name, index) => {
         return <li key={index}
-          className={classNames({'uk-active': currentCategory === name})}>
+          className={classNames("uk-visible@s", {'uk-active': currentCategory === name})}>
+          <Link to={`/blogs/${name}`}>{name.replace('_', ' ')}</Link>
+        </li>
+      })
+      : null
+    
+    const CategoryNavS = blogCategories
+      ? Object.keys(blogCategories).map((name, index) => {
+        return <li key={index}
+          className={classNames("uk-hidden@s", {'uk-active': currentCategory === name})}>
           <Link to={`/blogs/${name}`}>{name.replace('_', ' ')}</Link>
         </li>
       })
@@ -23,6 +32,15 @@ class CategoryTabs extends React.Component {
     return (
       <ul className="uk-subnav uk-subnav-pill" data-uk-switcher>
         {CategoryNavs}
+        
+        <li className="uk-hidden@s">
+          <a href="#">{currentCategory}<span data-uk-icon={"icon: triangle-down"}></span></a>
+          <div data-uk-dropdown={"mode: click;"}>
+              <ul className="uk-nav uk-dropdown-nav">
+                {CategoryNavS}
+              </ul>
+          </div>
+        </li>
       </ul>      
     )
   }
@@ -34,8 +52,8 @@ class CategoryBlogs extends React.Component {
     
     const blogList = (blogs) => {
       const blogItems = blogs.map((blog, index) => 
-        <Link key={index} to={`/post/${blog.title}`} className="uk-width-1-4@m">
-          <div className="uk-card uk-card-default">
+        <Link key={index} to={`/post/${blog.title}`} className="uk-width-1-3@s uk-width-1-4@m">
+          <div className="uk-card uk-card-default uk-visible@s">
             <div className="uk-card-media-top">
               <img src={ blog.cover } alt="" />
             </div>
@@ -43,6 +61,18 @@ class CategoryBlogs extends React.Component {
               <h3 className="uk-card-title">{blog.title}</h3>
               <p>{blog.meta}</p>
             </div>
+          </div>
+          <div className="uk-card uk-card-default uk-child-width-1-2 uk-hidden@s" data-uk-grid>
+              <div className="uk-card-media-left uk-cover-container">
+                  <img src={ blog.cover } data-uk-cover />
+                  <canvas width="" height=""></canvas>
+              </div>
+              <div>
+                  <div className="uk-card-body">
+                    <h3 className="uk-card-title">{blog.title}</h3>
+                    <p>{blog.meta}</p>
+                  </div>
+              </div>
           </div>
         </Link>
       )
