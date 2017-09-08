@@ -5,6 +5,7 @@ import axios from 'axios'
 import yaml from 'js-yaml'
 
 import Loading from '../components/Loading'
+import BlogItem from '../components/BlogItem'
 import { buildCategories } from '../utils'
 
 class CategoryTabs extends React.Component {
@@ -52,27 +53,7 @@ class CategoryBlogs extends React.Component {
     const blogList = (blogs) => {
       const blogItems = blogs.map((blog, index) => 
         <Link key={index} to={`/post/${blog.title}`} className='uk-width-1-3@s uk-width-1-4@m'>
-          <div className='uk-card uk-card-default uk-visible@s'>
-            <div className='uk-card-media-top'>
-              <img src={ blog.cover } alt='' />
-            </div>
-            <div className='uk-card-body'>
-              <h3 className='uk-card-title'>{blog.title}</h3>
-              <p>{blog.meta}</p>
-            </div>
-          </div>
-          <div className='uk-card uk-card-default uk-child-width-1-2 uk-hidden@s' data-uk-grid>
-              <div className='uk-card-media-left uk-cover-container'>
-                  <img src={ blog.cover } data-uk-cover />
-                  <canvas width='' height=''></canvas>
-              </div>
-              <div>
-                  <div className='uk-card-body'>
-                    <h3 className='uk-card-title'>{blog.title}</h3>
-                    <p>{blog.meta}</p>
-                  </div>
-              </div>
-          </div>
+          <BlogItem blog={blog} />
         </Link>
       )
       return (

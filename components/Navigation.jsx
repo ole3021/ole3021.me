@@ -60,7 +60,7 @@ class Navigation extends React.Component {
   )
 
     return (
-      <div data-uk-sticky={'sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky;'}>
+      <div data-uk-sticky={'sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; top: 20'}>
         <nav className='uk-navbar-container' data-uk-navbar>
           <div className='uk-navbar-left'>
             <Link to='/' className='uk-navbar-item uk-logo'>

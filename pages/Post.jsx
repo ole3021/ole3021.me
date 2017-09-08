@@ -5,7 +5,6 @@ import axios from 'axios'
 import marked from 'marked'
 import yaml from 'js-yaml'
 
-import Navigation from '../components/Navigation'
 import Loading from '../components/Loading'
 
 import { buildTitles, getPostArticle, buildSubTitles } from '../utils'
@@ -78,7 +77,6 @@ class Post extends React.Component {
 
     return (
       <div className="uk-container">
-        <Navigation pathname={pathname} />
         {/* <Title post={blogTitles ? blogTitles[title] : null} /> */}
         {isLoading ? <Loading /> : <Content post={post} />}
       </div>
