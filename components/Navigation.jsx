@@ -3,100 +3,94 @@ import classNames from 'classnames'
 
 import { Link } from 'react-router'
 import { navFromPath } from '../utils'
+import UIkit from 'uikit'
+
+const indexLinks = {
+  home: {
+    name: 'Home',
+    path: ['/'],
+    hideOn: ['/', '']
+  },
+  blogs: {
+    name: 'Blogs',
+    path: ['blogs', 'post']
+  },
+  works: {
+    name: 'Works',
+    path: ['works'],
+    disabled: true
+  },
+  about: {
+    name: 'About',
+    path: ['about'],
+    disabled: true
+  }
+}
+const repoLink = 'https://github.com/ole3021'
 
 class Navigation extends React.Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      isActive: false
-    }
-  }
-
   render () {
-    const homeLInk = '/'
-    const blogsLink = 'blogs'
-    const postLink = 'post'
-    const worksLink = '/' // works
-    const aboutLink = '/' // about
-    const repoLink = 'https://github.com/ole3021'
+    const { props: { pathname } } = this
 
-    const { props: { pathname }, state: { isActive } } = this
     const currentNav = navFromPath(pathname)
 
+    const closeModalMenu = e => {
+      const MenuModal = UIkit.modal('#modal-menu')
+      if (MenuModal.isToggled()) MenuModal.toggle()
+    }
+
+    const MenuList = Object.keys(indexLinks).map((linkKey, index) =>
+      <li key={index} className={classNames({'uk-active': indexLinks[linkKey].path.indexOf(currentNav) >= 0,
+        'uk-invisible': indexLinks[linkKey].hideOn && indexLinks[linkKey].hideOn.indexOf(currentNav) >= 0,
+        'uk-disabled': indexLinks[linkKey].disabled})}>
+        <Link to={indexLinks[linkKey].path[0] || '404'}>
+          {indexLinks[linkKey].name || linkKey.toUppserCase()}
+        </Link>
+      </li>
+    )
+
+    const MenuListMobile = Object.keys(indexLinks).map((linkKey, index) =>
+      <li key={index} className={classNames({'uk-active': indexLinks[linkKey].path.indexOf(currentNav) >= 0,
+        'uk-invisible': indexLinks[linkKey].hideOn && indexLinks[linkKey].hideOn.indexOf(currentNav) >= 0,
+        'uk-disabled': indexLinks[linkKey].disabled})}>
+        <Link to={indexLinks[linkKey].path[0] || '404'}>
+          <h1>{indexLinks[linkKey].name || linkKey.toUppserCase()}</h1>
+        </Link>
+      </li>
+  )
+
     return (
-      <div className="container">
-        <nav className="uk-navbar">
-          <div className="uk-navbar-left">
-            <Link to={homeLInk} className='uk-navbar-item uk-logo'>
+      <div data-uk-sticky={'sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky;'}>
+        <nav className='uk-navbar-container' data-uk-navbar>
+          <div className='uk-navbar-left'>
+            <Link to='/' className='uk-navbar-item uk-logo'>
               <b>OLE3021</b>
             </Link>
           </div>
-          <div className="uk-navbar-right uk-visible@s">
-              <ul className="uk-navbar-nav">
-                <li className={classNames({'uk-invisible': currentNav === homeLInk || !currentNav})}>
-                  <Link to={homeLInk}>
-                    Home
-                  </Link>
-                </li>
-                <li className={classNames({'uk-active': currentNav === blogsLink || currentNav === postLink})}>
-                  <Link to={blogsLink}>
-                    Blogs
-                  </Link>
-                </li>
-                <li className={classNames("uk-disabled", {'uk-active': currentNav === worksLink})}>
-                  <Link to={worksLink}>
-                    Works
-                  </Link>
-                </li>
-                <li className={classNames("uk-disabled", {'uk-active': currentNav === aboutLink})}>
-                  <Link to={aboutLink}>
-                    About
-                  </Link>
-                </li>
-              </ul>
-              <div className="uk-navbar-item">
-                <a href={repoLink} className="uk-icon-button" data-uk-icon={"icon: github"}></a>
-              </div>
+          <div className='uk-navbar-right uk-visible@s'>
+            <ul className='uk-navbar-nav'>
+              {MenuList}
+            </ul>
+            <div className='uk-navbar-item'>
+              <a href={repoLink} className='uk-icon-button' data-uk-icon={'icon: github'} />
+            </div>
           </div>
-          <div className="uk-navbar-right uk-hidden@s">
-            <a className="uk-navbar-toggle" data-uk-icon={"icon: menu"} data-uk-toggle={"#modal-menu"}></a>
-            <div id="modal-menu" className="uk-modal-full" data-uk-modal>
-              <div className="uk-modal-dialog">
-                <button className="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
-                  <div className="uk-grid-collapse uk-flex-center uk-flex-middle" data-uk-grid>
-                      <div className="uk-background-cover"  data-uk-height-viewport></div>
-                      <div className="uk-padding-large">
-                        <ul className="uk-nav uk-nav-default uk-nav-center">
-                          <li className={classNames({'uk-invisible': currentNav === homeLInk || !currentNav})}>
-                            <a href={homeLInk}>
-                              <h1>Home</h1>
-                            </a>
-                          </li>
-                          <li className={classNames({'uk-active': currentNav === blogsLink || currentNav === postLink})}>
-                            <a href={blogsLink}>
-                              <h1>Blogs</h1>
-                            </a>
-                          </li>
-                          <li className={classNames("uk-disabled", {'uk-active': currentNav === worksLink})}>
-                            <a href={worksLink}>
-                              <h1>Works</h1>
-                            </a>
-                          </li>
-                          <li className={classNames("uk-disabled", {'uk-active': currentNav === aboutLink})}>
-                            <a href={aboutLink}>
-                              <h1>About</h1>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                  </div>
+          <div className='uk-navbar-right uk-hidden@s'>
+            <a className='uk-navbar-toggle' data-uk-icon={'icon: menu'} data-uk-toggle={'#modal-menu'} />
+            <div id='modal-menu' className='uk-modal-full' data-uk-modal>
+              <div className='uk-modal-dialog' onClick={closeModalMenu}>
+                <button className='uk-modal-close-full uk-close-large' type='button' data-uk-close />
+                <div className='uk-grid-collapse uk-flex-center uk-flex-middle' data-uk-grid>
+                  <div className='uk-background-cover uk-padding-large' data-uk-height-viewport />
+                  <ul className='uk-nav uk-nav-default uk-nav-center'>
+                    {MenuListMobile}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </nav>
       </div>
-      
     )
   }
 }
