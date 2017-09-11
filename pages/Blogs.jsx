@@ -14,7 +14,7 @@ class CategorySwitcher extends React.Component {
   render () {
     const { props: { blogCategories, currentCategory } } = this
 
-    const categorySwitchers = blogCategories ? Object.keys(blogCategories).map((name, index) => {
+    const categorySwitchersL = blogCategories ? Object.keys(blogCategories).map((name, index) => {
       return (
         <Link key={index} to={`/blogs/${name}`} className={classNames('uk-button', {'uk-button-primary': currentCategory === name})} data-mix-filter={`.${name}`}>
           {name.replace('_', ' ')}
@@ -23,16 +23,33 @@ class CategorySwitcher extends React.Component {
     })
     : null
 
+    const switchToCategory = (name) => {
+      browserHistory.push(`/blogs/${name}`)
+    }
+
+    const categorySwitchersS = blogCategories ? Object.keys(blogCategories).map((name, index) => {
+      return (
+        <li key={index} className='uk-text-center' onClick={() => switchToCategory(name)}>
+          {name.replace('_', ' ')}
+        </li>
+      )
+    })
+    : null
+
     return (
       <div className='uk-container uk-container-center'>
         <div className='uk-flex uk-flex-center'>
           <div className='uk-button-group uk-visible@s'>
-            {categorySwitchers}
+            {categorySwitchersL}
           </div>
           <div className='uk-inline uk-hidden@s'>
-            <button className='uk-button uk-button-default' type='button'>Click</button>
-            <div data-uk-dropdown={'mode: click'}>
-              {categorySwitchers}
+            <button className='uk-button uk-button-default' type='button'>{currentCategory.replace('_', ' ')}</button>
+            <div data-uk-dropdown={'mode: click; pos: bottom-justify'}>
+              <div className='uk-drop-grid uk-child-width-1-1' data-uk-grid>
+                <ul className='uk-list uk-list-large uk-list-divider'>
+                  {categorySwitchersS}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -110,7 +127,6 @@ class Blogs extends React.Component {
       }
 
       this.mixer.dataset(posts)
-      this.mixer.filter(category === 'all' ? 'all' : `.${category}`)
     })
   }
 
