@@ -92,7 +92,7 @@ class Blogs extends React.Component {
 
     const render = blog => {
       return (
-      `<li class='mix-target ${blog.category} uk-width-1-1@s uk-width-1-3@m uk-width-1-4@l' data-mix-item data-mix-date=${blog.created.toISOString().split('T')[0]}>` +
+      `<li class='mix-target ${blog.category} uk-width-1-1 uk-width-1-2@s uk-width-1-3@m uk-width-1-4@l' data-mix-item data-mix-date=${blog.created.toISOString().split('T')[0]}>` +
         `<a href='/post/${blog.title}'>` +
           `<div class='uk-margin uk-text-center uk-card uk-card-default uk-card-small'>` +
             `<div class='uk-card-media-top'>` +
