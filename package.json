@@ -35,7 +35,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --hot --inline --no-info --output-public-path=/build/",
-    "pack": "NODE_ENV=production webpack",
+    "build": "NODE_ENV=production webpack",
     "generate": "babel-node ./pack.blogInfos.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
