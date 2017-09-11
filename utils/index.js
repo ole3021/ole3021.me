@@ -1,7 +1,7 @@
 export const buildCategories = posts => posts.reduce((pre, cur) => {
   const category = cur.category ? cur.category : 'None'
-  pre.all = pre.all
-    ? pre.all.concat([cur])
+  pre.All = pre.All
+    ? pre.All.concat([cur])
     : [cur]
   pre[category] = pre[category]
     ? pre[category].concat([cur])

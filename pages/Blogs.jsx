@@ -29,7 +29,7 @@ class CategorySwitcher extends React.Component {
 
     const categorySwitchersS = blogCategories ? Object.keys(blogCategories).map((name, index) => {
       return (
-        <li key={index} className='uk-text-center' onClick={() => switchToCategory(name)}>
+        <li key={index} className='uk-text-center uk-dropdown-close' onClick={() => switchToCategory(name)}>
           {name.replace('_', ' ')}
         </li>
       )
@@ -126,7 +126,7 @@ class Blogs extends React.Component {
       this.setState({ isLoading: false, blogCategories: categories, posts: posts })
 
       if (!category) {
-        browserHistory.push(`/blogs/all`)
+        browserHistory.push(`/blogs/All`)
       }
 
       this.mixer.dataset(posts)
@@ -141,7 +141,7 @@ class Blogs extends React.Component {
     const { props: { params: { category } }, state: { blogCategories, posts } } = this
 
     if (category && this.mixer) {
-      this.mixer.filter(category === 'all' ? 'all' : `.${category}`)
+      this.mixer.filter(category === 'All' ? 'all' : `.${category}`)
     }
 
     return (
