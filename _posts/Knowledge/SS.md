@@ -5,7 +5,7 @@ category: Knowledge
 tags: [sss]
 cover: /assets/images/post/sss.jpg
 color: '#606060'
-created: '2017-08-08'
+created: 2017-08-08
 ---
 
 # 自建ShadowSocks服务备忘录

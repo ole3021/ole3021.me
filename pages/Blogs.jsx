@@ -12,7 +12,7 @@ window.mixitup = mixitup
 
 class CategorySwitcher extends React.Component {
   render () {
-    const { props: { blogCategories, currentCategory } } = this
+    const { props: { blogCategories, currentCategory = currentCategory || 'All' } } = this
 
     const categorySwitchersL = blogCategories ? Object.keys(blogCategories).map((name, index) => {
       return (
@@ -89,7 +89,10 @@ class Blogs extends React.Component {
 
     const container = document.querySelector('[data-mix-container]')
 
-    const render = blog => (
+
+    const render = blog => {
+      console.log('>>> blog', blog);
+      return (
       `<li class='mix-target ${blog.category} uk-width-1-1@s uk-width-1-3@m uk-width-1-4@l' data-mix-item data-mix-date=${blog.created.toISOString().split('T')[0]}>` +
         `<a href='/post/${blog.title}'>` +
           `<div class='uk-margin uk-text-center uk-card uk-card-default uk-card-small'>` +
@@ -104,6 +107,7 @@ class Blogs extends React.Component {
         `</a>` +
       `</li>`
     )
+    }
 
     this.mixer = mixitup(container, {
       data: {

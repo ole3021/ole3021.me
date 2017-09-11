@@ -5,7 +5,7 @@ category: Works
 tags: [code, work]
 cover: /assets/images/post/blog.jpg
 color: '#606060'
-created: '2017-01-18'
+created: 2017-01-18
 ---
 
 # 基于Github Pages的易用单页React站点

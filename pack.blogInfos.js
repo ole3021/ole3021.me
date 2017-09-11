@@ -1,5 +1,5 @@
-import * as fs from 'fs'
-import { sync as globSync } from 'glob'
+const fs = require('fs')
+const { sync: globSync } = require('glob')
 
 const POST_PATTERN = './_posts/**/*.md'
 const POST_INFO_FILE = './postInfos.yml'

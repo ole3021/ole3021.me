@@ -5,7 +5,7 @@ category: Software_Enginerring
 tags: [code, agile]
 cover: /assets/images/post/agile-samurai.jpg
 color: '#606060'
-created: '2016-02-22'
+created: 2016-02-22
 ---
 
 敏捷开发
