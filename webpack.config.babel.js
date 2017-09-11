@@ -25,7 +25,7 @@ export default {
   context: __dirname,
   entry: {
     'bundle.js': './index.jsx',
-    'bundle.css': './assets/sass/app.scss'
+    'bundle.css': './assets/less/main.less'    
   },
   output: {
     path: `${__dirname}/build/`,
@@ -37,12 +37,11 @@ export default {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
+      },{
+        test: /\.less$/,
+        use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
+          use: ['css-loader', 'less-loader']
         })
       }
     ]
@@ -52,7 +51,7 @@ export default {
   },
   plugins,
   devServer: {
-    port: 4999,
+    port: 3021,
     hot: true,
     historyApiFallback: {
       index: './index.html'

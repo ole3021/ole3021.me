@@ -3,55 +3,38 @@ import React from 'react'
 class Footer extends React.Component {
   render () {
     return (
-      <footer className='footer'>
-        <div className='container'>
-          <div className='columns'>
-            <div className='column'>
-              <h5 className='title is-5'>友情链接</h5>
-              <ul>
-                <li><a target='_blank' href='https://www.chiphell.com/'>ChipHell</a></li>
-                <li><a target='_blank' href='http://sspai.com/'>少数派</a></li>
-              </ul>
+      <div className='uk-section uk-section-secondary'>
+        <div className='uk-container' data-uk-grid>
+          <div className='uk-width-1-3@s uk-width-1-1'>
+            <div className='uk-flex uk-flex-column uk-flex-middle'>
+              <h4>友情链接</h4>
+              <div className='uk-flex-center'><a target='_blank' href='https://www.chiphell.com/'>ChipHell</a></div>
+              <div><a target='_blank' href='http://sspai.com/'>少数派</a></div>              
             </div>
-            <div className='column'>
-              <h5 className='title is-5'>收藏整理</h5>
-              <ul>
-                <li><a target='_blank' href='http://www.guoku.com/tag/name/%E6%9E%9C%E5%BA%93%E6%9C%89%E7%BE%A4%E5%B7%A5%E7%A8%8B%E5%B8%88/'>工程师必备</a></li>
-              </ul>
+          </div>
+          <div className='uk-width-1-3@s uk-width-1-1'>
+            <div className='uk-flex uk-flex-column uk-flex-middle'>
+              <h4>收藏整理</h4>
+              <div><a target='_blank' href='http://www.guoku.com/tag/name/%E6%9E%9C%E5%BA%93%E6%9C%89%E7%BE%A4%E5%B7%A5%E7%A8%8B%E5%B8%88/'>工程师必备</a></div>
             </div>
-            <div className='column'>
-              <h5 className='title is-5'><i className='fa fa-heart red' /> York</h5>
+          </div>
+          <div className='uk-width-1-3@s uk-width-1-1'>
+            <div className='uk-flex uk-flex-column'>
+              <h4><span style={{color: 'red'}} className='uk-margin-small-right' data-uk-icon={'icon: heart'} />York</h4>
               <p>爱生活，爱编程，去创造和使用美好的东西...</p>
             </div>
-            <div className='column'>
-              <h5 className='title is-5'>FOLLOW ME</h5>
-                <span className='icon'>
-                  <a target='_blank' href='https://github.com/ole3021'>
-                    <i className='fa fa-github fa-lg' />
-                  </a>
-                </span>
-                <span className='icon'>
-                  <a target='_blank' href='https://cn.linkedin.com/in/ole3021'>
-                    <i className='fa fa-linkedin fa-lg' />
-                  </a>
-                </span>
-                <span className='icon'>
-                  <a target='_blank' href='http://weibo.com/ole3021'>
-                    <i className='fa fa-weibo fa-lg' />
-                  </a>
-                </span>
-            </div>
-          </div>
-          <div className='level'>
-            <p className='level-left'>
-              ©&nbsp;2017&nbsp;by&nbsp;<a target='_blank' href='http://ole3021.me/' alt='Oliver Wang'>ole3021</a>. All Rights Reserved.
-            </p>
-            <p className='level-right'>
-              Powerd&nbsp;by&nbsp;<a target='_blank' href='https://github.com/'>Github</a>, <a target='_blank' href='https://facebook.github.io/react/'>React</a>
-            </p>
           </div>
         </div>
-      </footer>
+        <hr className='uk-divider' />
+        <div className='uk-container'>
+          <div className='uk-align-left'>
+            © 2017 by ole3021 . All Rights Reserved.
+          </div>
+          <div className='uk-align-right'>
+            Powerd by <a target='_blank' href='https://pages.github.com/'>Github Pages</a>, <a target='_blank' href='https://facebook.github.io/react/'>React</a>
+          </div>
+        </div>
+      </div>
     )
   }
 }

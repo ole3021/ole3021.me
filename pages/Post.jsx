@@ -5,29 +5,39 @@ import axios from 'axios'
 import marked from 'marked'
 import yaml from 'js-yaml'
 
-import Navigation from '../components/Navigation'
 import Loading from '../components/Loading'
 
-import { buildTitles, getPostArticle } from '../utils'
+import { buildTitles, getPostArticle, buildSubTitles } from '../utils'
 
-class HeroBody extends React.Component {
+class Title extends React.Component {
   render () {
     const { props: { post } } = this
     const postTitle = post
-      ? <div className='container'>
-        <div className='column'>
-          <p className='title'>
-            {post.title}
-          </p>
-          <p className='subtitle'>
-            {post.meta}
-          </p>
-        </div>
-      </div>
+      ? <article className="uk-article">
+          <h1 className="uk-article-title">{post.title}</h1>
+          <p className="uk-article-meta">{post.meta}</p>
+        </article>
       : null
     return (
-      <div className='hero-body'>
+      <div className='uk-container'>
         {postTitle}
+      </div>
+    )
+  }
+}
+
+class Content extends React.Component {
+  render () {
+    const { props: { post } } = this
+    return (
+      <div data-uk-grid>
+        <div className="uk-width-2-3@l uk-width-3-3@s">
+          <article className='uk-article' dangerouslySetInnerHTML={{__html: post}} />
+        </div>
+        <div className="uk-width-1-3@l">
+          <div className="info">
+          </div>
+        </div>
       </div>
     )
   }
@@ -64,24 +74,11 @@ class Post extends React.Component {
 
   render () {
     const { props: { location: { pathname }, params: { title } }, state: { isLoading, blogTitles, post } } = this
-    const postPage = <section className='section'>
-      <div className='container'>
-        <div className='content'>
-          <article className='article' dangerouslySetInnerHTML={{__html: post}} />
-        </div>
-      </div>
-    </section>
 
     return (
-      <div>
-        <section className={classNames('hero', 'is-info')}>
-          <Navigation pathname={pathname} />
-          <HeroBody post={blogTitles ? blogTitles[title] : null} />
-        </section>
-        {isLoading
-          ? <Loading />
-          : postPage
-        }
+      <div className="uk-container">
+        {/* <Title post={blogTitles ? blogTitles[title] : null} /> */}
+        {isLoading ? <Loading /> : <Content post={post} />}
       </div>
     )
   }

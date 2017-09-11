@@ -3,124 +3,68 @@ import { Link, browserHistory } from 'react-router'
 import classNames from 'classnames'
 import axios from 'axios'
 import yaml from 'js-yaml'
+import mixitup from 'mixitup'
 
-import Navigation from '../components/Navigation'
 import Loading from '../components/Loading'
 import { buildCategories } from '../utils'
 
-class HeroBody extends React.Component {
-  render () {
-    return (
-      <div className='hero-body'>
-        <div className='container'>
-          <div className='column'>
-            <p className='title'>
-              Blogs
-            </p>
-            <p className='subtitle'>
-              Personal blogs.
-            </p>
-          </div>
-        </div>
-      </div>
-    )
-  }
-}
+window.mixitup = mixitup
 
-class HeroFoot extends React.Component {
+class CategorySwitcher extends React.Component {
   render () {
     const { props: { blogCategories, currentCategory } } = this
-    const categoryNavs = blogCategories
-      ? Object.keys(blogCategories).map((name, index) => {
-        return <li key={index}
-          className={classNames({'is-active': currentCategory === name})}>
-          <Link to={`/blogs/${name}`}>{name.replace('_', ' ')}</Link>
-        </li>
-      })
-      : null
-    return (
-      <div className='hero-foot'>
-        <div className='container'>
-          <div className='tabs is-centered is-boxed'>
-            <ul>
-              {categoryNavs}
-            </ul>
-          </div>
-        </div>
-      </div>
-    )
-  }
-}
 
-class BodySection extends React.Component {
-  render () {
-    const { props: { blogCategories, currentCategory } } = this
-    const blogList = (blogs) => {
-      // Create eacth blog react component
-      const blogItems = blogs.map((blog, index) => {
-        return (
-          <Link key={index} to={`/post/${blog.title}`} className='column is-one-quarter'>
-            <section>
-              <div className='card is-fullwidth'>
-                <div className='card-image'>
-                  <figure className='image is-16by9'>
-                    <img src={blog.cover} alt='Image' />
-                  </figure>
-                </div>
-                <div className='card-content'>
-                  <div className='media'>
-                    <div className='media-content'>
-                      <p className='title is-4'>{blog.title}</p>
-                      <p className='subtitle is-6'>{blog.tags}</p>
-                    </div>
-                  </div>
-
-                  <div className='content'>
-                    {blog.meta}
-                    <br />
-                    <small>{blog.created || 'null'}</small>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </Link>
-        )
-      }).reduce((pre, blogItem) => {
-        // Group blog components for each column
-        pre.length === 0
-          ? pre.push([blogItem])
-          : pre[pre.length - 1].length < 4
-            ? pre[pre.length - 1].push(blogItem)
-            : pre.push([blogItem])
-        return pre
-      }, []).map((blogColumn, index) => {
-        return (
-          <div key={index} className='columns'>
-            {blogColumn}
-          </div>
-        )
-      })
-
+    const categorySwitchersL = blogCategories ? Object.keys(blogCategories).map((name, index) => {
       return (
-        <div className='content'>
-          {blogItems}
-        </div>
+        <Link key={index} to={`/blogs/${name}`} className={classNames('uk-button', {'uk-button-primary': currentCategory === name})} data-mix-filter={`.${name}`}>
+          {name.replace('_', ' ')}
+        </Link>
       )
+    })
+    : null
+
+    const switchToCategory = (name) => {
+      browserHistory.push(`/blogs/${name}`)
     }
-    const categorySessions = blogCategories
-      ? Object.keys(blogCategories).map((name, index) => {
-        return (
-          <section key={index} className={classNames('section', {'hidden': currentCategory !== name})}>
-            <div className='container'>
-              {blogList(blogCategories[name])}
-            </div>
-          </section>
-        )
-      })
-      : <Loading />
+
+    const categorySwitchersS = blogCategories ? Object.keys(blogCategories).map((name, index) => {
+      return (
+        <li key={index} className='uk-text-center' onClick={() => switchToCategory(name)}>
+          {name.replace('_', ' ')}
+        </li>
+      )
+    })
+    : null
+
     return (
-      <div>
-        {categorySessions}
+      <div className='uk-container uk-container-center'>
+        <div className='uk-flex uk-flex-center'>
+          <div className='uk-button-group uk-visible@s'>
+            {categorySwitchersL}
+          </div>
+          <div className='uk-inline uk-hidden@s'>
+            <button className='uk-button uk-button-default' type='button'>{currentCategory.replace('_', ' ')}</button>
+            <div data-uk-dropdown={'mode: click; pos: bottom-justify'}>
+              <div className='uk-drop-grid uk-child-width-1-1' data-uk-grid>
+                <ul className='uk-list uk-list-large uk-list-divider'>
+                  {categorySwitchersS}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
+class CategoryBlogs extends React.Component {
+  render () {
+    return (
+      <div className='uk-section'>
+        <div className='uk-container uk-container-center'>
+          <ul id='mix-wrapper' className='uk-grid-medium uk-child-width-expand@s uk-text-center' style={{}} data-uk-grid data-mix-container />
+        </div>
       </div>
     )
   }
@@ -130,37 +74,77 @@ class Blogs extends React.Component {
   constructor (props) {
     super(props)
 
+    this.mixer = null
+
     this.state = {
       isLoading: true,
-      blogCategories: null
+      blogCategories: null,
+      posts: null
     }
   }
 
   componentDidMount () {
     const { props: { params: { category } } } = this
     const postInfoPath = '/postInfos.yml'
+
+    const container = document.querySelector('[data-mix-container]')
+
+    const render = blog => (
+      `<li class='mix-target ${blog.category} uk-width-1-1@s uk-width-1-3@m uk-width-1-4@l' data-mix-item data-mix-date=${blog.created.toISOString().split('T')[0]}>` +
+        `<a href='/post/${blog.title}'>` +
+          `<div class='uk-margin uk-text-center uk-card uk-card-default uk-card-small'>` +
+            `<div class='uk-card-media-top'>` +
+              `<img src=${blog.cover} alt='' />` +
+            `</div>` +
+            `<div class='uk-card-body'>` +
+              `<h3 class='uk-card-title'>${blog.title}</h3>` +
+              `<div class='el-meta uk-margin uk-text-meta'>${blog.meta}</div>` +
+            `</div>` +
+          `</div>` +
+        `</a>` +
+      `</li>`
+    )
+
+    this.mixer = mixitup(container, {
+      data: {
+        uidKey: 'path'
+      },
+      render: {
+        target: render
+      },
+      selectors: {
+        target: '[data-mix-item]'
+      }
+    })
+
     axios.get(postInfoPath).then(({data}) => {
       const posts = yaml.load(data)
       const categories = buildCategories(posts)
-      // article = marked(data)
-      this.setState({ isLoading: false, blogCategories: categories })
+      this.setState({ isLoading: false, blogCategories: categories, posts: posts })
+
       if (!category) {
-        browserHistory.push(`/blogs/${Object.keys(categories)[0]}`)
+        browserHistory.push(`/blogs/all`)
       }
+
+      this.mixer.dataset(posts)
     })
   }
 
+  componentWillUnmount () {
+    this.mixer.destroy()
+  }
+
   render () {
-    const { props: { location: { pathname } }, props: { params: { category } }, state: { blogCategories } } = this
+    const { props: { params: { category } }, state: { blogCategories, posts } } = this
+
+    if (category && this.mixer) {
+      this.mixer.filter(category === 'all' ? 'all' : `.${category}`)
+    }
 
     return (
-      <div>
-        <section className={classNames('hero', 'is-info')}>
-          <Navigation pathname={pathname} />
-          <HeroBody />
-          <HeroFoot currentCategory={category} blogCategories={blogCategories} />
-        </section>
-        <BodySection currentCategory={category} blogCategories={blogCategories} />
+      <div className='uk-container'>
+        <CategorySwitcher currentCategory={category} blogCategories={blogCategories} />
+        <CategoryBlogs currentCategory={category} posts={posts} />
       </div>
     )
   }
