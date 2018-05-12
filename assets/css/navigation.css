@@ -1,0 +1,186 @@
+/**********
+ Navigation
+***********/
+.navigation {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  z-index: 10;
+}
+
+.body {
+  margin-top: 50px;
+  background-color: #E7E7E7;
+}
+
+.header {
+  background-color: var(--dark);
+
+  height: 50px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .logo {
+  padding-left: 10px;
+  color: var(--white);
+  font-family: arial-black;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+
+.logo img {
+  margin-top: 5px;
+  height: 45px;
+}
+
+.toggle {
+  display: flex;
+  width: 45px;
+  height: 35px;
+  position: relative;
+  margin: 10px 10px;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+.toggle span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 80%;
+  background: var(--white);
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.toggle span:nth-child(1) {
+  top: 0px;
+}
+
+.toggle span:nth-child(2) {
+  top: 13px;
+}
+
+.toggle span:nth-child(3) {
+  top: 26px;
+}
+
+.toggle.open span:nth-child(1) {
+  top: 15px;
+  transform: rotate(135deg);
+}
+
+.toggle.open span:nth-child(2) {
+  opacity: 0;
+  left: -600px;
+}
+
+.toggle.open span:nth-child(3) {
+  top: 15px;
+  transform: rotate(-135deg);
+}
+
+nav ul {
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+nav li {
+  list-style-type: none;
+  transform: skew(-15deg);
+}
+nav li a {
+  color: var(--white);
+  text-transform: uppercase;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  transition: .20s all linear;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.menu li a {
+  border-left: 2px solid var(--dark-second);
+  padding: 15px 25px;
+}
+.menu li:last-child a {
+  border-right: 2px solid var(--dark-second);
+}
+.menu li a:focus,
+.menu li a:hover,
+.menu li a:active {
+  background-color: var(--dark-active);
+  color: var(--white);
+}
+
+.toggle-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark);
+}
+.toggle-menu li {
+  display: flex;
+  height: 60px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.toggle-menu li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 0px 10px;
+  border-top: 2px solid var(--dark-active);
+}
+.toggle-menu li a:focus,
+.toggle-menu li a:hover,
+.toggle-menu li a:active {
+  background-color: var(--dark-active);
+  color: var(--white);
+}
+
+/*Mobile*/
+@media only screen and (max-width: 768px) {
+  .toggle-menu {
+    display: none;
+  }
+  .toggle-menu.open {
+    opacity: 1;
+    display: flex;
+  }
+  .menu {
+    display: none;
+  }
+  .menu.open {
+    display: flex;
+  }
+}
+
+/*Tablet*/
+@media only screen and (min-width: 768px) {
+  .toggle-menu {
+    display: none
+  }
+  .toggle {
+    display: none;
+  }
+  .menu {
+    padding-right: 10px;
+  }
+}

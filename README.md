@@ -1,178 +1,31 @@
-# Preact Boilerplate / Starter Kit [![Build Status](https://travis-ci.org/developit/preact-boilerplate.svg?branch=master)](https://travis-ci.org/developit/preact-boilerplate) [![Preact Slack Community](https://preact-slack.now.sh/badge.svg)](https://preact-slack.now.sh)
+![ole3021](https://cloud.githubusercontent.com/assets/2676686/21916192/cabbdcac-d979-11e6-9136-4d323eb4c14c.png)
 
-:guitar: Ready-to-rock [Preact] starter project, powered by [webpack]. **[(View Demo)](https://preact-boilerplate.surge.sh)**
+# Personal Blog Site
+This site have use the idea of [spa-github-pages](https://github.com/rafrex/spa-github-pages) to trick Github pages work with React-Router
 
-> ### :rocket: Note: We now recommend [Preact CLI](https://github.com/developit/preact-cli/) for new projects.
->
-> [Preact CLI](https://github.com/developit/preact-cli/) is a natural evolution of this boilerplate, and improves on it in every way. In a single dependency, you get a friendly command line project creation and build tool with development & production modes. Preact CLI requires _no configuration at all_, and even does **automatic code-splitting** without you lifting a finger!  It also produces bundles roughly half the size of preact-boilerplate.
+The site will dynamically load postInfos and posts before visit the actual page, and rendering dynamically with the data.
 
----
+## Purpose
+The purpose of build this site are list as followes.
 
+* Use Github Pages to host my personal blog site.
+* Make create and publish post easily, event without build pages.
+* Use React as the main libiary to build pages, and make it flexible enough.
+* Keep the porject structure in a clean way.
 
-# Quick-Start Guide
+## Advantages
+* Publish post with out build(upload will or edit on Github)
+* Path and categories of post are generate dynamicly.
+* Pure React and Babel used to build pages
+* Use React-Router
+* Cleaned structure of projects
 
-- [Installation](#installation)
-- [Development Workflow](#development-workflow)
-- [Structure](#structure)
-- [CSS Modules](#css-modules)
-- [Handling URLS](#handling-urls)
-- [React Compatibility](#react-compatibility)
+## Usage
+`npm run start`: start run the local dev server  
+`npm run generate`: generate configurations for posts, used to generate path, category and etc.. infos.  
+`npm run build`: build static bundle file for Github pages server  
 
+> For post update can just change the markdown post file on github.  
+> To Add new post just add markdown post in the folder and manually add configs in [postInfos.yml](https://github.com/ole3021/ole3021.me/blob/master/postInfos.yml)
 
-## Installation
 
-**1. Clone this repo:**
-
-```sh
-git clone --depth 1 https://github.com/developit/preact-boilerplate.git my-app
-cd my-app
-```
-
-
-**2. Make it your own:**
-
-```sh
-rm -rf .git && git init && npm init
-```
-
-> :information_source: This re-initializes the repo and sets up your NPM project.
-
-
-**3. Install the dependencies:**
-
-```sh
-npm install
-```
-
-> You're done installing! Now let's get started developing.
-
-
-
-## Development Workflow
-
-
-**4. Start a live-reload development server:**
-
-```sh
-npm run dev
-```
-
-> This is a full web server nicely suited to your project. Any time you make changes within the `src` directory, it will rebuild and even refresh your browser.
-
-**5. Testing with `mocha`, `karma`, `chai`, `sinon` via `phantomjs`:**
-
-```sh
-npm test
-```
-
-> 🌟 This also instruments the code in `src/` using [isparta](https://github.com/douglasduteil/isparta), giving you pretty code coverage statistics at the end of your tests! If you want to see detailed coverage information, a full HTML report is placed into `coverage/`.
-
-**6. Generate a production build in `./build`:**
-
-```sh
-npm run build
-```
-
-> You can now deploy the contents of the `build` directory to production!
->
-> **[Surge.sh](https://surge.sh) Example:** `surge ./build -d my-app.surge.sh`
-> 
-> **[Netlify](https://www.netlify.com/docs/cli/) Example:** `netlify deploy`
->
-> [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/developit/preact-boilerplate)
-
-
-**5. Start local production server with [serve](https://github.com/zeit/serve):**
-
-```sh
-npm start
-```
-
-> This is to simulate a production (CDN) server with gzip. It just serves up the contents of `./build`.
-
-
-
----
-
-
-## Structure
-
-Apps are built up from simple units of functionality called Components. A Component is responsible for rendering a small part of an application, given some input data called `props`, generally passed in as attributes in JSX. A component can be as simple as:
-
-```js
-class Link extends Component {
-  render({ to, children }) {
-    return <a href={ to }>{ children }</a>;
-  }
-}
-// usage:
-<Link to="/">Home</Link>
-```
-
-
----
-
-
-## CSS Modules
-
-This project is set up to support [CSS Modules](https://github.com/css-modules/css-modules).  By default, styles in `src/style` are **global** (not using CSS Modules) to make global declarations, imports and helpers easy to declare.  Styles in `src/components` are loaded as CSS Modules via [Webpack's css-loader](https://github.com/webpack/css-loader#css-modules).  Modular CSS namespaces class names, and when imported into JavaScript returns a mapping of canonical (unmodified) CSS classes to their local (namespaced/suffixed) counterparts.
-
-When imported, this LESS/CSS:
-
-```css
-.redText { color:red; }
-.blueText { color:blue; }
-```
-
-... returns the following map:
-
-```js
-import styles from './style.css';
-console.log(styles);
-// {
-//   redText: 'redText_local_9gt72',
-//   blueText: 'blueText_local_9gt72'
-// }
-```
-
-Note that the suffix for local classNames is generated based on an md5 hash of the file. Changing the file changes the hash.
-
-
----
-
-
-## Handling URLS
-
-:information_desk_person: This project contains a basic two-page app with [URL routing](http://git.io/preact-router).
-
-Pages are just regular components that get mounted when you navigate to a certain URL. Any URL parameters get passed to the component as `props`.
-
-Defining what component(s) to load for a given URL is easy and declarative. You can even mix-and-match URL parameters and normal props.
-
-```js
-<Router>
-  <A path="/" />
-  <B path="/b" id="42" />
-  <C path="/c/:id" />
-</Router>
-```
-
-
----
-
-
-## React Compatibility
-
-This project includes [preact-compat] alias in as `react` and `react-dom` right out-of-the-box.  This means you can install and use third-party React components, and they will use Preact automatically!  It also means that if you _don't_ install third-party React components, `preact-compat` doesn't get included in your JavaScript bundle - it's free if you don't use it 👍
-
----
-
-
-## License
-
-MIT
-
-
-[Preact]: https://github.com/developit/preact
-[preact-compat]: https://github.com/developit/preact-compat
-[webpack]: https://webpack.github.io
