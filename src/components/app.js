@@ -2,14 +2,8 @@ import { h, Component } from 'preact';
 import { Router } from 'preact-router';
 
 import Header from './header';
-import Home from '../routes/home';
-import Profile from '../routes/profile';
-// import Home from 'async!../routes/home';
-// import Profile from 'async!../routes/profile';
-
-if (module.hot) {
-	require('preact/debug');
-}
+import Home from './home';
+import Profile from './profile';
 
 export default class App extends Component {
 	/** Gets fired when the route changes.
