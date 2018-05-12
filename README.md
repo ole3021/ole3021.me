@@ -1,31 +1,22 @@
-![ole3021](https://cloud.githubusercontent.com/assets/2676686/21916192/cabbdcac-d979-11e6-9136-4d323eb4c14c.png)
+# prc-temp
 
-# Personal Blog Site
-This site have use the idea of [spa-github-pages](https://github.com/rafrex/spa-github-pages) to trick Github pages work with React-Router
+## CLI Commands
 
-The site will dynamically load postInfos and posts before visit the actual page, and rendering dynamically with the data.
+``` bash
+# install dependencies
+npm install
 
-## Purpose
-The purpose of build this site are list as followes.
+# serve with hot reload at localhost:8080
+npm run dev
 
-* Use Github Pages to host my personal blog site.
-* Make create and publish post easily, event without build pages.
-* Use React as the main libiary to build pages, and make it flexible enough.
-* Keep the porject structure in a clean way.
+# build for production with minification
+npm run build
 
-## Advantages
-* Publish post with out build(upload will or edit on Github)
-* Path and categories of post are generate dynamicly.
-* Pure React and Babel used to build pages
-* Use React-Router
-* Cleaned structure of projects
+# test the production build locally
+npm run serve
 
-## Usage
-`npm run start`: start run the local dev server  
-`npm run generate`: generate configurations for posts, used to generate path, category and etc.. infos.  
-`npm run build`: build static bundle file for Github pages server  
+# run tests with jest and preact-render-spy 
+npm run test
+```
 
-> For post update can just change the markdown post file on github.  
-> To Add new post just add markdown post in the folder and manually add configs in [postInfos.yml](https://github.com/ole3021/ole3021.me/blob/master/postInfos.yml)
-
-
+For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/developit/preact-cli/blob/master/README.md).
