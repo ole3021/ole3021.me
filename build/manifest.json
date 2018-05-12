@@ -1,7 +1,7 @@
 {
   "name": "prc-temp",
   "short_name": "prc-temp",
-  "start_url": "/build/",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#fff",
