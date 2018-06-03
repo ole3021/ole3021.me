@@ -7,6 +7,7 @@ import Blogs from './blogs'
 import Works from './works'
 import About from './about'
 import Profile from './profile'
+import Footer from './footer'
 
 export default class App extends Component {
   /** Gets fired when the route changes.
@@ -27,6 +28,7 @@ export default class App extends Component {
           <Works path="/works" />
           <About path="/about" />
         </Router>
+        <Footer />
       </div>
     )
   }

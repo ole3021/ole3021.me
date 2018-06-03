@@ -1,6 +1,5 @@
 .home {
-  padding: 64px 0px;
-  min-height: 100%;
+  padding: 64px 0px 0px 0px;
   width: 100%;
 }
 
@@ -12,12 +11,9 @@
   padding: 6rem 5rem;
   box-sizing: border-box;
   flex: 1 1;
+  flex-direction: column;
 }
 
 .container {
-  position: relative;
-  padding: 1rem;
-  max-width: 50rem;
-  margin: 0 auto;
-  display: block;
+  padding: 0 !important;
 }
