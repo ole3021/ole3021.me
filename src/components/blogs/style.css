@@ -12,3 +12,8 @@
 .cardInfo {
   padding: 10px 20px;
 }
+
+.blogs a {
+  color: black;
+  text-decoration: none;
+}
