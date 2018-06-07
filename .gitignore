@@ -6,3 +6,7 @@ node_modules
 
 # Mac DS_Store
 .DS_Store
+
+# Parcel
+.cache
+dist

@@ -1,10 +1,9 @@
 import { h, Component } from 'preact'
 import { Link } from 'preact-router'
 import LayoutGrid from 'preact-material-components/LayoutGrid'
-import 'preact-material-components/LayoutGrid/style.css'
 import Card from 'preact-material-components/Card'
+import 'preact-material-components/LayoutGrid/style.css'
 import 'preact-material-components/Card/style.css'
-import 'preact-material-components/Button/style.css'
 import style from './style.css'
 import loki from 'lokijs'
 import axios from 'axios'
@@ -36,7 +35,6 @@ export default class Blogs extends Component {
 
   render(props, state) {
     if (state.blogs) {
-      console.log('>>>', state.blogs.data[2])
       return (
         <div class={style.blogs}>
           <LayoutGrid>

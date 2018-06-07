@@ -1,23 +1,10 @@
-// import 'promise-polyfill';
-// import 'isomorphic-fetch';
-import { h, render } from 'preact';
-import './style';
+import { h, render } from 'preact'
+import 'preact/devtools'
+import './style'
+if (process.env.NODE_ENV === 'production') require('./pwa')
 
-let root;
-function init() {
-	let App = require('./components/app').default;
-	root = render(<App />, document.body, root);
-}
+import App from './components/app'
 
-// register ServiceWorker via OfflinePlugin, for prod only:
-if (process.env.NODE_ENV==='production') {
-	require('./pwa');
-}
+const mountNode = document.getElementById('root')
 
-// in development, set up HMR:
-if (module.hot) {
-	//require('preact/devtools');   // turn this on if you want to enable React DevTools!
-	module.hot.accept('./components/app', () => requestAnimationFrame(init) );
-}
-
-init();
+render(<App />, mountNode, mountNode.lastChild)
