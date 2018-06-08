@@ -5,7 +5,7 @@ import Header from './header'
 import Footer from './footer'
 import Home from '../routes/home'
 import Blogs from '../routes/blogs'
-import Content from '../routes/content'
+// import Content from '../routes/content'
 import About from '../routes/about'
 import Works from '../routes/works'
 
@@ -16,7 +16,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div id="app">
+      <div>
         <Header />
         <Router onChange={this.handleRoute}>
           <Home path="/" />
