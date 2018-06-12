@@ -1,19 +1,12 @@
 import { h, Component } from 'preact'
 import { route } from 'preact-router'
 import TopAppBar from 'preact-material-components/TopAppBar'
-import Icon from 'preact-material-components/Icon'
 import Drawer from 'preact-material-components/Drawer'
 import List from 'preact-material-components/List'
-// import Dialog from 'preact-material-components/Dialog'
-// import Switch from 'preact-material-components/Switch'
-// import 'preact-material-components/Switch/style.css'
-// import 'preact-material-components/Dialog/style.css'
 import 'preact-material-components/TopAppBar/style.css'
 import 'preact-material-components/Drawer/style.css'
 import 'preact-material-components/List/style.css'
 import 'preact-material-components/Theme/style.css'
-
-// import style from './style';
 
 export default class Header extends Component {
   toggleDrawer = () => {

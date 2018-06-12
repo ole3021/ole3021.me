@@ -4,15 +4,12 @@ import LayoutGrid from 'preact-material-components/LayoutGrid'
 import Card from 'preact-material-components/Card'
 import 'preact-material-components/LayoutGrid/style.css'
 import 'preact-material-components/Card/style.css'
-import style from './style.css'
 import loki from 'lokijs'
 import axios from 'axios'
 
 export default class Blogs extends Component {
-  constructor() {
-    super()
-
-    this.state.blogs = null
+  state = {
+    blogs: null
   }
 
   componentDidMount() {
@@ -35,20 +32,30 @@ export default class Blogs extends Component {
 
   render(props, state) {
     if (state.blogs) {
+      console.log('>>> stat', state.blogs.data)
       return (
-        <div class={style.blogs}>
+        <div class="main">
           <LayoutGrid>
             <LayoutGrid.Inner>
               {state.blogs.data.map(info => (
                 <LayoutGrid.Cell desktopCols="4" tabletCols="4" phoneCols="6">
                   <Link href={`/content/${info._id}`}>
                     <Card>
-                      <Card.Media class={style.cardMedia} />
-                      <div class={style.cardInfo}>
-                        <h2 class=" mdc-typography--title">
+                      <Card.Media class="cardMedia">
+                        <img
+                          src={
+                            info.meta.cover
+                              ? 'https://github.com/ole3021/blogs/raw/master/assets/agile-samurai.jpg'
+                              : '#'
+                          }
+                          style="z-index: -1;"
+                        />
+                      </Card.Media>
+                      <div class="cardInfo">
+                        <h2 class="mdc-typography--title">
                           {info.meta.title || info.name}
                         </h2>
-                        <div class=" mdc-typography--caption">
+                        <div class="mdc-typography--caption">
                           {info.meta.meta}
                         </div>
                       </div>
@@ -61,7 +68,7 @@ export default class Blogs extends Component {
         </div>
       )
     } else {
-      return <div class={style.blogs}>Loading</div>
+      return <div>Loading</div>
     }
   }
 }

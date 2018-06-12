@@ -3,7 +3,7 @@ import style from './style.css'
 
 export default () => {
   return (
-    <div class={style.works}>
+    <div class="main">
       <div>works</div>
     </div>
   )

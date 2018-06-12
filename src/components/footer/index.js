@@ -53,13 +53,13 @@ export default () => {
         <LayoutGrid.Inner>
           <LayoutGrid.Cell cols="6" class="mdc-layout-grid--align-left">
             <div>
-              <p>© 2018 by ole3021 . All Rights Reserved.</p>
+              <p>© 2018 by ole3021. All Rights Reserved.</p>
             </div>
           </LayoutGrid.Cell>
           <LayoutGrid.Cell cols="6" class="mdc-layout-grid--align-right">
             <div class={style.link}>
               <p>
-                Powerd By:{' '}
+                Powerd By{' '}
                 <a href="https://pages.github.com/" target="_blank">
                   <b>Github Pages</b>
                 </a>,{' '}

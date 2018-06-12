@@ -3,7 +3,7 @@ import style from './style.css'
 
 export default () => {
   return (
-    <div class={style.about}>
+    <div class="main">
       <div>about</div>
     </div>
   )

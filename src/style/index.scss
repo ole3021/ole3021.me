@@ -1,4 +1,5 @@
 @import 'variable';
+@import 'header';
 
 html {
   font-size: $base-font-size;
@@ -19,6 +20,10 @@ a {
   text-decoration: none;
 }
 
-main {
-  padding-top: 64px;
+.main {
+  padding: 64px 0px 0px 0px;
+  width: 100%;
+  .mdc-layout-grid {
+    padding: 0;
+  }
 }
