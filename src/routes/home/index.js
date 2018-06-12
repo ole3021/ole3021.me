@@ -1,8 +1,7 @@
 import { h, Component } from 'preact'
 import LayoutGrid from 'preact-material-components/LayoutGrid'
-import 'preact-material-components/LayoutGrid/style.css'
-import 'preact-material-components/Theme/style.css'
-import './style.scss'
+
+import style from './style.css'
 
 export default class Home extends Component {
   render() {

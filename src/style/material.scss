@@ -1,0 +1,46 @@
+$mdc-theme-primary: #9c27b0; // Purple 500
+$mdc-theme-secondary: #ffab40; // Orange A200
+$mdc-theme-background: #fff; // White
+
+// @import 'preact-material-components/Card/mdc-card';
+// @import 'preact-material-components/Drawer/mdc-drawer';
+// @import 'preact-material-components/LayoutGrid/mdc-layout-grid';
+// @import 'preact-material-components/List/mdc-list';
+// @import 'preact-material-components/Theme/mdc-theme';
+// @import 'preact-material-components/TopAppBar/mdc-top-app-bar';
+// @import 'preact-material-components/material-components-web';
+
+// @import '@material/animation/variables';
+// @import '@material/base/mixins';
+@import '@material/button/mdc-button';
+@import '@material/card/mdc-card';
+@import '@material/checkbox/mdc-checkbox';
+@import '@material/chips/mdc-chips';
+@import '@material/dialog/mdc-dialog';
+@import '@material/drawer/mdc-drawer';
+@import '@material/elevation/mdc-elevation';
+@import '@material/fab/mdc-fab';
+@import '@material/floating-label/mdc-floating-label';
+@import '@material/form-field/mdc-form-field';
+@import '@material/grid-list/mdc-grid-list';
+@import '@material/icon-toggle/mdc-icon-toggle';
+@import '@material/image-list/mdc-image-list';
+@import '@material/layout-grid/mdc-layout-grid';
+@import '@material/line-ripple/mdc-line-ripple';
+@import '@material/linear-progress/mdc-linear-progress';
+@import '@material/list/mdc-list';
+@import '@material/menu/mdc-menu';
+@import '@material/notched-outline/mdc-notched-outline';
+@import '@material/radio/mdc-radio';
+@import '@material/ripple/mdc-ripple';
+@import '@material/select/mdc-select';
+@import '@material/shape/mdc-shape';
+@import '@material/slider/mdc-slider';
+@import '@material/snackbar/mdc-snackbar';
+@import '@material/switch/mdc-switch';
+@import '@material/tabs/mdc-tabs';
+@import '@material/textfield/mdc-text-field';
+@import '@material/theme/mdc-theme';
+@import '@material/toolbar/mdc-toolbar';
+@import '@material/top-app-bar/mdc-top-app-bar';
+@import '@material/typography/mdc-typography';

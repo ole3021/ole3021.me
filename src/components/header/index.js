@@ -3,10 +3,6 @@ import { route } from 'preact-router'
 import TopAppBar from 'preact-material-components/TopAppBar'
 import Drawer from 'preact-material-components/Drawer'
 import List from 'preact-material-components/List'
-import 'preact-material-components/TopAppBar/style.css'
-import 'preact-material-components/Drawer/style.css'
-import 'preact-material-components/List/style.css'
-import 'preact-material-components/Theme/style.css'
 
 export default class Header extends Component {
   toggleDrawer = () => {

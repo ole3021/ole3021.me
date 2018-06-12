@@ -4,7 +4,7 @@
   "description": "Ready-to-go Preact starter project powered by webpack.",
   "scripts": {
     "build": "NODE_ENV=production parcel build ./src/index.html",
-    "dev": "parcel ./src/index.html -p 3021",
+    "dev": "parcel ./src/index.html -p 3021 --no-cache",
     "test": "npm run -s lint && jest --coverage",
     "test:watch": "npm run -s test -- --watch",
     "lint": "eslint src test"
