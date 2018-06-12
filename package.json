@@ -4,7 +4,7 @@
   "description": "Ready-to-go Preact starter project powered by webpack.",
   "scripts": {
     "build": "NODE_ENV=production parcel build ./src/index.html",
-    "dev": "parcel ./src/index.html -p 3021 --no-cache",
+    "dev": "parcel ./src/index.html -p 3021",
     "test": "npm run -s lint && jest --coverage",
     "test:watch": "npm run -s test -- --watch",
     "lint": "eslint src test"
@@ -56,16 +56,6 @@
     "preact-compat": "^3.17.0",
     "preact-material-components": "^1.4.5",
     "preact-router": "^2.6.1"
-  },
-  "babel": {
-    "presets": [
-      "env",
-      "stage-3",
-      "preact"
-    ],
-    "plugins": [
-      "transform-class-properties"
-    ]
   },
   "prettier": {
     "semi": false,
