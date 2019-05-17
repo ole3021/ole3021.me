@@ -1,4 +1,4 @@
-import pkg from './package'
+import meta from './meta'
 
 export default {
   mode: 'spa',
@@ -7,7 +7,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: pkg.name,
+    title: meta.name,
     script: [
       {
         src: 'https://use.fontawesome.com/releases/v5.0.0/js/all.js'
@@ -16,15 +16,10 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: meta.description },
+      { hid: 'keywords', name: 'keywords', content: meta.keywords }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        href: 'https://cdn.staticfile.org/minireset.css/0.0.2/minireset.min.css'
-      }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   /*
@@ -35,7 +30,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/main.css'],
+  css: ['bulma', '@/assets/sass/theme.sass', '@/assets/sass/main.sass'],
 
   /*
    ** Plugins to load before mounting the App
@@ -48,8 +43,6 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    // '@nuxtjs/bulma',
     '@nuxtjs/pwa'
   ],
   /*

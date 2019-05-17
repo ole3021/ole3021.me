@@ -1,188 +1,128 @@
 <template>
-  <div class="hero">
-    <div class="wallpaper"></div>
-    <div class="content">
-      <aside class="side">
-        <figure class="picture">
-          <div class="picture-shadow"></div>
-          <img
-            id="pictureImage"
-            class="picture-image"
-            src="images/alex.jpg"
-            srcset="images/alex.jpg 1x, images/alex@2x.jpg 2x, images/alex@3x.jpg 3x, images/alex@4x.jpg 4x"
-            alt="Portrait of Alex Jefferson"
-            width="320"
-            height="320"
-          >
-        </figure>
-      </aside>
-      <main class="about">
-        <h1 class="name">Hi, I'm Alex Jefferson</h1>
-        <p class="job">Tech recruiter</p>
-        <hr class="hr">
-        <div class="description">
-          <p>I spend my time traveling the world, helping startups and tech business hire the best people.</p>
-        </div>
-        <div class="contact">
-          <a class="button" href="mailto: ole3021@gmail.com">Get in touch</a>
-        </div>
-        <ul class="social">
-          <li>
-            <a>
-              <i class="fab fa-twitter"/>
-            </a>
-          </li>
-          <li>
-            <a>
-              <i class="fab fa-github"/>
-            </a>
-          </li>
-          <li>
-            <a>
-              <i class="fab fa-linkedin"/>
-            </a>
-          </li>
-        </ul>
-      </main>
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <aside class="side">
+          <figure class="image">
+            <img
+              class="is-rounded"
+              src="images/alex.jpg"
+              srcset="images/alex.jpg 1x, images/alex@2x.jpg 2x, images/alex@3x.jpg 3x, images/alex@4x.jpg 4x"
+              alt="Portrait of Oliver Wang"
+            >
+          </figure>
+        </aside>
+        <main class="about">
+          <h1 class="name">Hi, I'm Oliver Wang</h1>
+          <p
+            class="job"
+          >I'm a Backend Developer, Architect, Scrum Master, and Open-Source Contributor</p>
+          <hr class="hr">
+          <div class="description">
+            <p>I do Node.js, Flutter, Nest.js, Loopback, MongoDB, Rethink DB, etc</p>
+          </div>
+          <div class="contact">
+            <a class="button is-dark" href="mailto: ole3021@gmail.com">Get in touch</a>
+          </div>
+          <ul class="social">
+            <li>
+              <a href="https://twitter.com/ole3021" target="_blank">
+                <i class="fab fa-twitter"/>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/ole3021" target="_blank">
+                <i class="fab fa-github"/>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/ole3021/" target="_blank">
+                <i class="fab fa-linkedin"/>
+              </a>
+            </li>
+          </ul>
+        </main>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
-<style>
-.wallpaper {
-  background-image: url('../static/images/austria.jpg');
-  background-position: center;
-  background-size: cover;
-  opacity: 0.2;
-  position: fixed;
-}
+<style lang="sass">
+@import "../node_modules/bulma/sass/utilities/_all.sass"
 
-.content {
-  display: flex;
-  position: relative;
-  min-height: 80vh;
-}
+.container
+  display: flex
+  position: relative
+  min-height: 40vh
+  // min-height: 70vh
+  justify-content: space-around
+  justify-content: space-evenly
+  align-items: center
+  +touch
+    flex-direction: column
 
-.side {
-  max-height: 20rem;
-  max-width: 20rem;
-}
+  +desktop
+    justify-content: space-around
+    justify-content: space-evenly
+    
+.about
+  max-width: 37rem    
 
-.about {
-  max-width: 26rem;
-}
+.side
+  +touch
+    max-height: 15rem
+    max-width: 15rem
+    margin-bottom: 2rem
 
-@media screen and (max-width: 799px) {
-  .content {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5rem 3rem;
-  }
+  +desktop
+    max-height: 20rem
+    max-width: 20rem
+    order: 2
 
-  .side {
-    margin-bottom: 3rem;
-    width: 100%;
-  }
-}
+.name 
+  font-size: 2.25rem
+  line-height: 1.125
+  margin-bottom: 0.5rem
 
-@media screen and (min-width: 800px) {
-  .content {
-    align-items: center;
-    justify-content: space-around;
-    justify-content: space-evenly;
-    padding: 4rem;
-  }
+.hr 
+  background-color: #ff470f
+  border: none
+  content: ''
+  height: 4px
+  margin-bottom: 1.5rem
+  margin-top: 1.5rem
+  transform-origin: center left
+  width: 4rem
 
-  .side {
-    flex-grow: 0;
-    flex-shrink: 0;
-    height: 20rem;
-    margin-left: 4rem;
-    order: 2;
-    width: 20rem;
-  }
+.job,
+  font-family: 'Monsterrat', 'Quicksand', sans-serif
+  letter-spacing: 0.3rem
+  text-transform: uppercase
 
-  .about {
-    flex-grow: 1;
-    flex-shrink: 1;
-  }
-}
+.contact
+  margin-top: 1rem
 
-.job {
-  color: #ffe479;
-  font-size: 0.75rem;
-}
+.social
+  display: flex
+  margin-top: 1rem
+  
+  li
+    margin-right: 0.5rem
+    text-align: center
+    height: 2rem
+    width: 2rem
 
-.hr {
-  background-color: #ff470f;
-  border: none;
-  content: '';
-  height: 1px;
-  margin-bottom: 1.5rem;
-  margin-top: 1.5rem;
-  transform-origin: center left;
-  width: 4rem;
-}
+  a
+    align-items: center
+    font-size: 1.7rem
+    opacity: 0.5
+    will-change: opacity, transform
 
-.description {
-  font-size: 1.5rem;
-}
+  a:hover
+    opacity: 1
+    // transform: scale(1.5) FIXME: not working
 
-.contact {
-  display: inline-block;
-  margin-top: 1.5rem;
-  vertical-align: top;
-}
-
-.button {
-  background-color: #fff;
-  border-radius: 290486px;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-  color: #9013fe;
-  display: inline-block;
-  font-size: 0.875rem;
-  line-height: 1;
-  padding: 1.25em 2em;
-  text-shadow: none;
-  transition-property: box-shadow, transform;
-  user-select: none;
-  vertical-align: top;
-  white-space: nowrap;
-  will-change: box-shadow, transform;
-}
-
-.social {
-  display: flex;
-  margin-top: 1.5rem;
-}
-
-.social li {
-  height: 2rem;
-  margin-right: 0.5rem;
-  text-align: center;
-  width: 2rem;
-}
-
-.social a {
-  align-items: center;
-  display: flex;
-  font-size: 1.5rem;
-  height: 2rem;
-  justify-content: center;
-  opacity: 0.5;
-  transition-property: opacity, transform;
-  width: 2rem;
-  will-change: opacity, transform;
-}
-
-.social a:hover {
-  opacity: 1;
-  transform: scale(1.25);
-}
-
-.social a:active {
-  opacity: 1;
-  transform: scale(1.1);
-}
+  a:active 
+    opacity: 1
+    // transform: scale(1) FIXME: not working
 </style>
