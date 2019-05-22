@@ -1,5 +1,5 @@
 <template>
-  <aside class="menu">
+  <aside class="menu category-menu">
     <p class="menu-label">General</p>
 
     <p class="menu-label">Transactions</p>
@@ -16,3 +16,8 @@
     </ul>
   </aside>
 </template>
+
+<style lang="sass" scoped>
+.category-menu
+  margin: 2rem 0rem
+</style>

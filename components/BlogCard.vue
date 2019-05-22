@@ -3,7 +3,7 @@
     <figure class="cover-image">
       <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
     </figure>
-    <div class="blog-intro">
+    <div class="content blog-intro">
       <h1>Some Title</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -20,9 +20,10 @@
 
 <style lang="sass">
 .blog-card-container 
-  height: 10rem
-  min-height: 10rem
+  height: 16rem
+  min-height: 16rem
   overflow: hidden
+  margin-bottom: 2rem
 
 .cover-image
   width: 30rem
@@ -32,5 +33,8 @@
 .cover-image img
   height: 30rem
   
+.blog-intro
+  height: 100%
+  padding: 1rem 2rem
 
 </style>

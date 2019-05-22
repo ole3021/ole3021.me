@@ -7,6 +7,7 @@
         <BlogCard/>
         <BlogCard/>
         <BlogCard/>
+        <BlogPagination/>
       </div>
       <div class="column">
         <CategoryAside/>
@@ -18,11 +19,20 @@
 <script>
 import CategoryAside from '~/components/BlogCategoryAside.vue'
 import BlogCard from '~/components/BlogCard.vue'
+import BlogPagination from '~/components/BlogListPagination.vue'
 
 export default {
   components: {
     CategoryAside,
-    BlogCard
+    BlogCard,
+    BlogPagination
   }
 }
 </script>
+
+<style lang="sass">
+.blogList 
+
+  margin: 1.5rem
+
+</style>
