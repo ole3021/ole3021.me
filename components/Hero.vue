@@ -1,5 +1,6 @@
 <template>
   <section class="hero is-primary">
+    <img class="background" src="images/austria.jpg" alt="background">
     <div class="hero-body">
       <div class="container">
         <aside class="side">
@@ -49,6 +50,18 @@
 
 <style lang="sass">
 @import "../node_modules/bulma/sass/utilities/_all.sass"
+
+.hero 
+  position: relative
+  overflow: hidden
+
+.background
+  position: absolute
+  object-fit: cover
+  object-position: center center
+  width: 100%
+  height: 100%
+  opacity: 0.2
 
 .container
   display: flex
