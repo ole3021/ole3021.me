@@ -19,22 +19,28 @@
 </template>
 
 <style lang="sass">
+@import "../node_modules/bulma/sass/utilities/_all.sass"
+
 .blog-card-container 
-  height: 16rem
-  min-height: 16rem
   overflow: hidden
   margin-bottom: 2rem
+  +desktop
+    min-height: 16rem
+    // max-height: 16rem
+
 
 .cover-image
-  width: 30rem
   object-fit: cover
-  
+  height: 16rem
+  // height: 30rem
+
 
 .cover-image img
-  height: 30rem
+
   
 .blog-intro
   height: 100%
   padding: 1rem 2rem
+  
 
 </style>
