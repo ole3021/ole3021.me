@@ -2,11 +2,11 @@
   <div class="blogList">
     <div class="columns">
       <div class="column is-four-fifths">
-        <BlogCard/>
-        <BlogCard/>
-        <BlogCard/>
-        <BlogCard/>
-        <BlogCard/>
+        <BlogListCard/>
+        <BlogListCard/>
+        <BlogListCard/>
+        <BlogListCard/>
+        <BlogListCard/>
         <BlogPagination/>
       </div>
       <div class="column">
@@ -18,13 +18,13 @@
 
 <script>
 import CategoryAside from '~/components/BlogCategoryAside.vue'
-import BlogCard from '~/components/BlogCard.vue'
+import BlogListCard from '~/components/BlogListCard.vue'
 import BlogPagination from '~/components/BlogListPagination.vue'
 
 export default {
   components: {
     CategoryAside,
-    BlogCard,
+    BlogListCard,
     BlogPagination
   }
 }

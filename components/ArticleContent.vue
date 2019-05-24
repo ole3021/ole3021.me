@@ -21,18 +21,19 @@
 .box
   position: absolute
   z-index: 0
-  // dynamically 
   +desktop
+    font-size: $size-large
     margin: 4rem 9rem
     margin-top: -20rem 
   +touch
+    font-size: $size-medium
     margin: 2rem 6rem
     margin-top: -20rem 
   +mobile
+    font-size: $size-small
     margin: 1rem 1rem
     margin-top: -20rem 
-   
 
 .article-content
-  margin: 2rem 2rem
+  margin: 1rem 1rem
 </style>
