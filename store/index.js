@@ -7,10 +7,12 @@ export const state = () => {
 
 export const mutations = {
   SET_BLOG_LIST(state, blogList) {
+    console.log(`>>> loaded blog list`)
     state.blogList = blogList || []
   },
-  SET_ARTICLE(state, id, article) {
-    state[id] = article
+  SET_ARTICLE(state, article) {
+    console.log(`>>> loaded article: [${article.id}]`)
+    state.articles[article.id] = article.content
   }
 }
 

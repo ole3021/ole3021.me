@@ -1,6 +1,6 @@
 <template>
   <section class="article-cover">
-    <img class="background2" src="images/austria.jpg" alt="background">
+    <img class="background2" src="/images/austria.jpg" alt="background">
   </section>
 </template>
 

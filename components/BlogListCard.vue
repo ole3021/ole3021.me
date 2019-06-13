@@ -1,25 +1,34 @@
 <template>
   <div class="container is-fullhd blog-card-container">
-    <figure class="cover-image">
-      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-    </figure>
-    <div class="content is-hidden-touch is-flex blog-intro-side">
-      <h1>软件工程的最佳时间</h1>
-      <div>
-        <a>@bulmaio</a>.
-        <a href="#">#css</a>
-        <a href="#">#responsive</a>
-        <br>
-        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+    <nuxt-link :to="'articles/' + blog.id">
+      <figure class="cover-image">
+        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+      </figure>
+      <div class="content is-hidden-touch is-flex blog-intro-side">
+        <h1>{{blog.title}}</h1>
+        <div>
+          <a>@bulmaio</a>.
+          <a href="#">#css</a>
+          <a href="#">#responsive</a>
+          <br>
+          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        </div>
       </div>
-    </div>
-    <div class="content is-hidden-desktop blog-intro-bottom">
-      <div class="box">
-        <h1>软件工程的最佳实践</h1>
+      <div class="content is-hidden-desktop blog-intro-bottom">
+        <div class="box">
+          <h1>{{blog.title}}</h1>
+        </div>
       </div>
-    </div>
+    </nuxt-link>
   </div>
 </template>
+
+<script>
+export default {
+  props: ['blog']
+}
+</script>
+
 
 <style lang="sass">
 @import "../node_modules/bulma/sass/utilities/_all.sass"

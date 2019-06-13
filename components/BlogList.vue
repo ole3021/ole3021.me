@@ -2,7 +2,7 @@
   <div class="blogList">
     <div class="columns">
       <div class="column is-four-fifths">
-        <BlogListCard/>
+        <BlogListCard v-for="blog in blogList" :key="blog.title" :blog="blog"/>
         <BlogPagination/>
       </div>
       <div class="column">
@@ -26,8 +26,7 @@ export default {
   },
   computed: {
     blogList() {
-      console.log('>>> list', this.$store.blogList)
-      return this.$store.blogList
+      return this.$store.state.blogList
     }
   }
 }
