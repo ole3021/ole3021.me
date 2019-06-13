@@ -52,6 +52,10 @@ export default {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
+  router: {
+    middleware: 'static-content'
+  },
+
   /*
    ** Build configuration
    */

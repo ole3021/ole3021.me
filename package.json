@@ -13,6 +13,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^2.6.0",
+    "@pardjs/static-content-loader": "^1.5.1",
     "bulma": "^0.7.4",
     "cross-env": "^5.2.0",
     "nuxt": "^2.4.0"

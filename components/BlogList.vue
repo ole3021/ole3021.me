@@ -3,10 +3,6 @@
     <div class="columns">
       <div class="column is-four-fifths">
         <BlogListCard/>
-        <BlogListCard/>
-        <BlogListCard/>
-        <BlogListCard/>
-        <BlogListCard/>
         <BlogPagination/>
       </div>
       <div class="column">
@@ -22,10 +18,17 @@ import BlogListCard from '~/components/BlogListCard.vue'
 import BlogPagination from '~/components/BlogListPagination.vue'
 
 export default {
+  middleware: 'static-content',
   components: {
     CategoryAside,
     BlogListCard,
     BlogPagination
+  },
+  computed: {
+    blogList() {
+      console.log('>>> list', this.$store.blogList)
+      return this.$store.blogList
+    }
   }
 }
 </script>
