@@ -1,22 +1,28 @@
 <template>
-  <div class="container is-fullhd blog-card-container">
+  <div class="container is-fullhd blog-card">
     <nuxt-link :to="'articles/' + blog.id">
-      <figure class="cover-image">
-        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-      </figure>
-      <div class="content is-hidden-touch is-flex blog-intro-side">
-        <h1>{{blog.title}}</h1>
-        <div>
-          <a>@bulmaio</a>.
-          <a href="#">#css</a>
-          <a href="#">#responsive</a>
-          <br>
-          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+      <div class="columns is-hidden-touch blog-large">
+        <aside class="column">
+          <figure class="blog-large-cover">
+            <img :src="blog.cover" alt="Placeholder image">
+          </figure>
+        </aside>
+        <div class="column content blog-large">
+          <h1>{{blog.title}}</h1>
+          <div>
+            <a>@bulmaio</a>.
+            <a href="#">#css</a>
+            <a href="#">#responsive</a>
+            <br>
+            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+          </div>
         </div>
       </div>
-      <div class="content is-hidden-desktop blog-intro-bottom">
-        <div class="box">
-          <h1>{{blog.title}}</h1>
+
+      <div class="container is-hidden-desktop blog-small">
+        <img class="blog-small-background is-transparent" :src="blog.cover" alt="Placeholder image">
+        <div class="content blog-small-info">
+          <h1 class="is-1">{{blog.title}}</h1>
         </div>
       </div>
     </nuxt-link>
@@ -33,41 +39,47 @@ export default {
 <style lang="sass">
 @import "../node_modules/bulma/sass/utilities/_all.sass"
 
-.blog-card-container 
+.blog-card
   overflow: hidden
-  margin-bottom: 2rem
-  +desktop
-    min-height: 16rem
-  +touch
-    min-height: 8rem
-    max-height: 16rem
+  margin-bottom: 1.7rem
+  height: 20rem
   +mobile
-    min-height: 16rem
-    max-height: 16rem
+    height: 18rem
+  a
+    position: relative
+    width: 100%
+    height: 100%
 
-.cover-image
-  object-fit: cover
-  height: 16rem
-
-.blog-intro-side
-  flex-direction: column
-  justify-content: space-between
-  height: 16rem
-  width: 40rem
-  margin-bottom: 0rem !important
-  +desktop
-    padding: 1rem 1rem
-    
-.blog-intro-bottom
-  width: 100%
-  padding: 2rem 2rem
+.blog-large
+  aside
+    &-cover
+      object-fit: cover
+      object-position: center center
+      height: 100%
+      width: 100%
 
 
-.blog-intro-bottom .box
+.blog-small
+  position: relative
   overflow: hidden
-  margin-top: -7rem 
-  height: 7rem
-  border-radius: 0
-  box-shadow: 0 0 0  
+  height: 100%
+  &-background
+    position: absolute
+    object-fit: cover
+    object-position: center center
+    width: 100%
+    height: 100%
+  &-info
+    position: absolute
+    margin-top: 8rem
+    width: 80%
+    height: 10rem
+    background-color: rgba(0, 0, 0, 0.7)
+    +mobile
+      margin-top: 5rem
+      width: 100%
+    h1
+      padding: 1rem 1rem
+      color: white
 
 </style>
