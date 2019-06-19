@@ -6,12 +6,14 @@
 </template>
 
 <script>
-import showdown from 'showdown'
+import marked from '@pardjs/marked'
+import fm from 'front-matter'
 import ArticleCover from '~/components/ArticleCover.vue'
 import ArticleContent from '~/components/ArticleContent.vue'
 
-const converter = new showdown.Converter({
-  metadata: true
+
+marked.setOptions({
+  baseUrl: 'https://raw.githubusercontent.com/ole3021/blogs/master/'
 })
 
 export default {
@@ -22,9 +24,7 @@ export default {
   },
   computed: {
     article() {
-      return converter.makeHtml(
-        this.$store.state.articles[this.$route.params.id]
-      )
+      return marked(fm(this.$store.state.articles[this.$route.params.id]).body)
     }
   }
 }
