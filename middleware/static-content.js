@@ -3,7 +3,7 @@ import { StaticContentLoader } from '@pardjs/static-content-loader'
 const staticLoader = new StaticContentLoader(
   'https://raw.githubusercontent.com/ole3021/blogs/master/',
   {
-    indexFileName: 'customIndex.json',
+    indexFileName: 'index.json',
     timeout: 4000
   }
 )

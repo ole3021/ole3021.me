@@ -43,6 +43,8 @@ export default {
   overflow: hidden
   margin-bottom: 1.7rem
   height: 20rem
+  border-style: solid
+  border-width: 2px
   +mobile
     height: 18rem
   a
@@ -51,12 +53,16 @@ export default {
     height: 100%
 
 .blog-large
+  height: 100%
+  margin: 0 0
   aside
-    &-cover
-      object-fit: cover
-      object-position: center center
+    padding: 0 0
+  &-cover
+    object-fit: cover
+    object-position: center center
+    height: 100%
+    img
       height: 100%
-      width: 100%
 
 
 .blog-small
