@@ -7,14 +7,24 @@
             <img :src="blog.cover" alt="Placeholder image">
           </figure>
         </aside>
-        <div class="column content blog-large">
-          <h1>{{blog.title}}</h1>
-          <div>
-            <a>@bulmaio</a>.
-            <a href="#">#css</a>
-            <a href="#">#responsive</a>
-            <br>
-            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        <div class="column content container">
+          <div class="columns blog-intro">
+            <div class="column">
+              <h1>{{blog.title}}</h1>
+            </div>
+            <div class="column">
+              <p>{{blog.intro}}</p>
+            </div>
+            <div class="column">
+              <a>{{blog.category}}</a>.
+              <br>
+              <a v-for="tag in blog.tags" :key="tag">{{`#${tag}`}}</a>
+              <br>
+              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+            </div>
+            <div class="column">
+              <button class="button">Read More</button>
+            </div>
           </div>
         </div>
       </div>
@@ -87,5 +97,12 @@ export default {
     h1
       padding: 1rem 1rem
       color: white
+
+.blog-intro
+  height: 100%
+  flex-direction: column
+  justify-content: space-between
+
+
 
 </style>
