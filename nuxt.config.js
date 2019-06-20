@@ -43,7 +43,8 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/redirect-module'
   ],
   /*
    ** Axios module configuration
@@ -55,6 +56,14 @@ export default {
   router: {
     middleware: 'static-content'
   },
+
+  redirect: [
+    {
+      from: '^/blog-images/(.*)$',
+      to:
+        'https://raw.githubusercontent.com/ole3021/blogs/master/blog-images/$1'
+    }
+  ],
 
   /*
    ** Build configuration
