@@ -2,10 +2,10 @@
   <div class="blogList">
     <div class="columns">
       <div class="column is-four-fifths">
-        <BlogListCard v-for="blog in blogList" :key="blog.title" :blog="blog"/>
+        <BlogListCard v-for="blog in blogList" :key="blog.title" :blog="blog" />
       </div>
       <div class="column">
-        <CategoryAside/>
+        <CategoryAside />
       </div>
     </div>
   </div>
@@ -20,8 +20,14 @@ export default {
   middleware: 'static-content',
   components: {
     CategoryAside,
-    BlogListCard,
+    BlogListCard
     // BlogPagination
+  },
+  mounted() {
+    const images = document.getElementsByTagName('img')
+    this.$updateBlogImagesSource(
+      Array.from(images).filter(img => img.src.includes('blog-images'))
+    )
   },
   computed: {
     blogList() {
