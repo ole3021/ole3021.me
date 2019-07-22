@@ -7,8 +7,7 @@
           <figure class="image is-256x256">
             <img
               class="is-rounded"
-              src="images/alex.jpg"
-              srcset="images/alex.jpg 1x, images/alex@2x.jpg 2x, images/alex@3x.jpg 3x, images/alex@4x.jpg 4x"
+              src="images/oliver.jpg"
               alt="Portrait of Oliver Wang"
             >
           </figure>

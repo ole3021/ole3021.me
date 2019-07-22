@@ -1,8 +1,8 @@
 <template>
   <aside class="menu category-menu is-hidden-mobile">
-    <p class="menu-label">General</p>
+    <p class="menu-label">Categories</p>
 
-    <p class="menu-label">Transactions</p>
+    <!-- <p class="menu-label">Tags</p>
     <ul class="menu-list">
       <li>
         <a>Payments</a>
@@ -13,7 +13,7 @@
       <li>
         <a>Balance</a>
       </li>
-    </ul>
+    </ul> -->
   </aside>
 </template>
 

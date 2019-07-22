@@ -3,7 +3,6 @@
     <div class="columns">
       <div class="column is-four-fifths">
         <BlogListCard v-for="blog in blogList" :key="blog.title" :blog="blog"/>
-        <BlogPagination/>
       </div>
       <div class="column">
         <CategoryAside/>
@@ -15,14 +14,14 @@
 <script>
 import CategoryAside from '~/components/BlogCategoryAside.vue'
 import BlogListCard from '~/components/BlogListCard.vue'
-import BlogPagination from '~/components/BlogListPagination.vue'
+// import BlogPagination from '~/components/BlogListPagination.vue'
 
 export default {
   middleware: 'static-content',
   components: {
     CategoryAside,
     BlogListCard,
-    BlogPagination
+    // BlogPagination
   },
   computed: {
     blogList() {
@@ -33,7 +32,7 @@ export default {
 </script>
 
 <style lang="sass">
-.blogList 
+.blogList
 
   margin: 1.5rem
 
