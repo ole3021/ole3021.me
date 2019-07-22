@@ -1,31 +1,22 @@
-![ole3021](https://cloud.githubusercontent.com/assets/2676686/21916192/cabbdcac-d979-11e6-9136-4d323eb4c14c.png)
+# ole3021.me
 
-# Personal Blog Site
-This site have use the idea of [spa-github-pages](https://github.com/rafrex/spa-github-pages) to trick Github pages work with React-Router
+> My glorious Nuxt.js project
 
-The site will dynamically load postInfos and posts before visit the actual page, and rendering dynamically with the data.
+## Build Setup
 
-## Purpose
-The purpose of build this site are list as followes.
+``` bash
+# install dependencies
+$ yarn install
 
-* Use Github Pages to host my personal blog site.
-* Make create and publish post easily, event without build pages.
-* Use React as the main libiary to build pages, and make it flexible enough.
-* Keep the porject structure in a clean way.
+# serve with hot reload at localhost:3000
+$ yarn run dev
 
-## Advantages
-* Publish post with out build(upload will or edit on Github)
-* Path and categories of post are generate dynamicly.
-* Pure React and Babel used to build pages
-* Use React-Router
-* Cleaned structure of projects
+# build for production and launch server
+$ yarn run build
+$ yarn start
 
-## Usage
-`npm run start`: start run the local dev server  
-`npm run generate`: generate configurations for posts, used to generate path, category and etc.. infos.  
-`npm run build`: build static bundle file for Github pages server  
+# generate static project
+$ yarn run generate
+```
 
-> For post update can just change the markdown post file on github.  
-> To Add new post just add markdown post in the folder and manually add configs in [postInfos.yml](https://github.com/ole3021/ole3021.me/blob/master/postInfos.yml)
-
-
+For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
