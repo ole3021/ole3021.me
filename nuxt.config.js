@@ -54,6 +54,7 @@ export default {
   },
 
   router: {
+    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/ole3021.me/' : '',
     middleware: 'static-content'
   },
 
