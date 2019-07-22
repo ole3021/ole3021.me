@@ -35,7 +35,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/image-redirect.js'],
 
   /*
    ** Nuxt.js modules
@@ -54,17 +54,8 @@ export default {
   },
 
   router: {
-    // base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/ole3021.me/' : '',
-    middleware: 'static-content'
+    middleware: ['static-content']
   },
-
-  redirect: [
-    {
-      from: '^/blog-images/(.*)$',
-      to:
-        'https://raw.githubusercontent.com/ole3021/blogs/master/blog-images/$1'
-    }
-  ],
 
   /*
    ** Build configuration

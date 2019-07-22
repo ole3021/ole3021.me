@@ -6,9 +6,9 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "DEPLOY_ENV=GH_PAGES nuxt build",
+    "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "DEPLOY_ENV=GH_PAGES nuxt generate",
+    "generate": "nuxt generate",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {

@@ -10,7 +10,13 @@
 
 <script>
 export default {
-  props: ['article']
+  props: ['article'],
+  mounted() {
+    const images = document.getElementsByTagName('img')
+    this.$updateBlogImagesSource(
+      Array.from(images).filter(img => img.src.includes('blog-images'))
+    )
+  }
 }
 </script>
 
